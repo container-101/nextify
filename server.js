@@ -11,13 +11,12 @@ app.prepare().then(() => {
   const server = new Koa()
   const router = new Router()
 
-  router.get('/a', async (ctx) => {
-    await app.render(ctx.req, ctx.res, '/a', ctx.query)
+  router.get('/', async (ctx) => {
+    await app.render(ctx.req, ctx.res, '/', ctx.query)
     ctx.respond = false
   })
-
-  router.get('/b', async (ctx) => {
-    await app.render(ctx.req, ctx.res, '/b', ctx.query)
+  router.get('/landing', async (ctx) => {
+    await app.render(ctx.req, ctx.res, '/landing', ctx.query)
     ctx.respond = false
   })
 
