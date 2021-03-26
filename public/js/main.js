@@ -90,7 +90,7 @@
 	$window.on("load", function () {
 		window.setTimeout(function () {
 			$body.removeClass("is-preload");
-		}, 100);
+		}, 90);
 	});
 
 	// Clear transitioning state on unload/hide.

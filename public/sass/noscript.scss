@@ -1,9 +1,9 @@
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
-@import 'libs/vendor';
-@import 'libs/breakpoints';
-@import 'libs/html-grid';
+@import "libs/vars";
+@import "libs/functions";
+@import "libs/mixins";
+@import "libs/vendor";
+@import "libs/breakpoints";
+@import "libs/html-grid";
 
 /*
 	Forty by HTML5 UP
@@ -13,16 +13,16 @@
 
 /* Banner */
 
-	#banner {
-		body.is-preload & {
-			&:after {
-				opacity: 0.85;
-			}
+#banner {
+	body.is-preload & {
+		&:after {
+			opacity: 0.85;
+		}
 
-			> .inner {
-				@include vendor('filter', 'none');
-				@include vendor('transform', 'none');
-				opacity: 1;
-			}
+		> .inner {
+			@include vendor("filter", "none");
+			@include vendor("transform", "none");
+			opacity: 1;
 		}
 	}
+}
