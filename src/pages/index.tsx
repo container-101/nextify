@@ -45,7 +45,7 @@ export default function Home() {
 							</span>
 							<header className="major">
 								<h3>
-									<a href="landing.html" className="link">
+									<a href="/landing" className="link">
 										Aliquam
 									</a>
 								</h3>
@@ -58,7 +58,7 @@ export default function Home() {
 							</span>
 							<header className="major">
 								<h3>
-									<a href="landing.html" className="link">
+									<a href="/landing" className="link">
 										Tempus
 									</a>
 								</h3>
@@ -71,7 +71,7 @@ export default function Home() {
 							</span>
 							<header className="major">
 								<h3>
-									<a href="landing.html" className="link">
+									<a href="/landing" className="link">
 										Magna
 									</a>
 								</h3>
@@ -84,7 +84,7 @@ export default function Home() {
 							</span>
 							<header className="major">
 								<h3>
-									<a href="landing.html" className="link">
+									<a href="/landing" className="link">
 										Ipsum
 									</a>
 								</h3>
@@ -97,7 +97,7 @@ export default function Home() {
 							</span>
 							<header className="major">
 								<h3>
-									<a href="landing.html" className="link">
+									<a href="/landing" className="link">
 										Consequat
 									</a>
 								</h3>
@@ -110,7 +110,7 @@ export default function Home() {
 							</span>
 							<header className="major">
 								<h3>
-									<a href="landing.html" className="link">
+									<a href="/landing" className="link">
 										Etiam
 									</a>
 								</h3>
@@ -136,7 +136,7 @@ export default function Home() {
 							</p>
 							<ul className="actions">
 								<li>
-									<a href="landing.html" className="button next">
+									<a href="/landing" className="button next">
 										Get Started
 									</a>
 								</li>
