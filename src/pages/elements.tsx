@@ -1,4 +1,4 @@
-import { Contact, Footer, Header, Menu } from "@src/components/common";
+import { Contact, Footer, Header, Menu } from "@src/components";
 import React, { useEffect } from "react";
 
 export default function Elements(): JSX.Element {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Contact, Footer, Header, Main, Menu } from "@src/components/common";
+import { Contact, Footer, Header, Main, Menu } from "@src/components";
 
 export default function Home(): JSX.Element {
 	// useEffect(() => {

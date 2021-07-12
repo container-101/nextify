@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Contact, Footer, Header, Menu } from "@src/components/common";
+import { Contact, Footer, Header, Menu } from "@src/components";
 
 export default function Generic(): JSX.Element {
 	useEffect(() => {

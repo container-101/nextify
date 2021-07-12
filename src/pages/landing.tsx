@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Menu, Footer, Contact } from "@src/components/common";
+import { Menu, Footer, Contact } from "@src/components";
 
 export default function Landing(): JSX.Element {
 	useEffect(() => {
