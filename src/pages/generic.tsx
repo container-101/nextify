@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import { Contact, Footer, Header, Menu } from "@src/components/common";
 
-export interface IGenericProps {}
-
-export default function Generic(props: IGenericProps) {
+export default function Generic(): JSX.Element {
 	useEffect(() => {
 		document.querySelector("body").classList.add("is-preload");
 	});

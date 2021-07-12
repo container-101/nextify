@@ -1,10 +1,7 @@
 import { Contact, Footer, Header, Menu } from "@src/components/common";
-import Head from "next/head";
 import React, { useEffect } from "react";
 
-export interface IElementsProps {}
-
-export default function Elements(props: IElementsProps) {
+export default function Elements(): JSX.Element {
 	useEffect(() => {
 		document.querySelector("body").classList.add("is-preload");
 	}, []);

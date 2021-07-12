@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import { Menu, Footer, Contact } from "@src/components/common";
 
-export interface ILandingProps {}
-
-export default function Landing(props: ILandingProps) {
+export default function Landing(): JSX.Element {
 	useEffect(() => {
 		document.querySelector("body").classList.add("is-preload");
 	}, []);
