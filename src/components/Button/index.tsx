@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import styles from "./index.module.scss";
-import { GetServerSideProps } from "next";
+import styles from "@styles/components/Button.module.scss";
 
 interface Props {
 	className?: string;
