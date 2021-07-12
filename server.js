@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const Koa = require("koa");
 const next = require("next");
 const Router = require("@koa/router");
+const compression = require("compression");
+const koaConnect = require("koa-connect");
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== "production";
@@ -20,6 +23,8 @@ app.prepare().then(() => {
 		await handle(ctx.req, ctx.res);
 		ctx.respond = false;
 	});
+
+	server.use(koaConnect(compression()));
 
 	server.use(async (ctx, next) => {
 		ctx.res.statusCode = 200;
