@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@src/components";
+import { Button } from "@src/components/common";
 
 export default function List(): JSX.Element {
 	return (

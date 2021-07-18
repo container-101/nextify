@@ -1,4 +1,4 @@
-import { Contact, Footer, Header, Menu } from "@src/components";
+import { Contact, Footer, Header, Menu } from "@src/components/template";
 import React, { useEffect } from "react";
 
 export default function Elements(): JSX.Element {
