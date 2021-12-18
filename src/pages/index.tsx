@@ -1,18 +1,17 @@
-import React, { useEffect } from "react";
-import { Contact, Footer, Header, Main, Menu } from "@src/components/template";
+import { Button } from "@src/components/common";
+import React, { useEffect, FC } from "react";
+import styles from "@styles/pages/home.module.scss";
 
-export default function Home(): JSX.Element {
-	useEffect(() => {
-		document.querySelector("body").classList.add("is-preload");
-	}, []);
+interface HomPageProps {
+	userData: any;
+}
 
+const HomePage: FC<HomPageProps> = () => {
 	return (
-		<div id="wrapper">
-			<Header />
-			<Menu />
-			<Main />
-			<Contact />
-			<Footer />
+		<div id={styles.ctn}>
+			<Button btnSize="large">abc</Button>
 		</div>
 	);
-}
+};
+
+export default HomePage;

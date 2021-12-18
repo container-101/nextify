@@ -2,21 +2,19 @@
 	"name": "nextjs-template",
 	"version": "1.0.0",
 	"scripts": {
-		"dev": "node server.js",
+		"dev": "next dev -p 10000",
 		"build": "next build",
-		"start": "cross-env NODE_ENV=production node server.js",
+		"start": "next start -p 10000",
 		"lint": "next lint",
-		"storybook": "start-storybook -p 6006",
-		"build-storybook": "build-storybook"
+		"storybook": "start-storybook -s ./public -p 6006",
+		"build-storybook": "build-storybook -s ./public"
 	},
 	"dependencies": {
-		"@koa/router": "^10.0.0",
 		"axios": "^0.21.1",
 		"classnames": "^2.3.1",
 		"compression": "^1.7.4",
 		"cross-env": "^7.0.3",
-		"koa": "^2.13.1",
-		"koa-connect": "^2.1.0",
+		"framer-motion": "^4.1.17",
 		"lodash": "^4.17.21",
 		"next": "^11.0.1",
 		"react": "^17.0.2",

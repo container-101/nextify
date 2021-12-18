@@ -3,13 +3,13 @@ import styles from "./Range.module.scss";
 
 interface Props {
 	max?: number;
-	size?: "small" | "medium" | "large";
+	placeholder?: string;
 	onClick?: () => void;
 }
 
 export default function Range({
 	max = 50000,
-	size = "medium",
+	placeholder = "",
 }: Props): JSX.Element {
 	const [value, setValue] = useState<number>(max / 2);
 
@@ -36,12 +36,13 @@ export default function Range({
 				(value / max) * 100 +
 				"%, #d5d4d3 100%)",
 		);
-	}, []);
+	}, [max, value]);
 
 	return (
 		<div className={styles.container}>
 			<input
 				type="range"
+				placeholder={placeholder}
 				min={0}
 				max={max}
 				step={max / 100}

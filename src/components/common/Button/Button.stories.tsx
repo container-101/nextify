@@ -41,24 +41,3 @@ Small.args = {
 	// backgroundColor: "skyblue",
 	children: "Price",
 };
-
-export const Google = Template.bind({});
-Google.args = {
-	children: "Sign in with Google",
-	size: "large",
-	social: "google",
-};
-
-export const Kakao = Template.bind({});
-Kakao.args = {
-	children: "Sign in with Kakao",
-	size: "large",
-	social: "kakao",
-};
-
-export const Naver = Template.bind({});
-Naver.args = {
-	children: "Sign in with Naver",
-	size: "large",
-	social: "naver",
-};

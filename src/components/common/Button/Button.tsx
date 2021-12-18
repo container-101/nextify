@@ -1,53 +1,59 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import classNames from "classnames";
+import { btnSizes, btnStyles } from "@utils/constants";
 import styles from "./Button.module.scss";
 
 interface Props {
+	type?: "button" | "submit" | "reset";
 	className?: string;
-	primary?: boolean;
-	backgroundColor?: string;
-	social?: "google" | "kakao" | "naver";
-	size?: "small" | "medium" | "large";
-	children?: string;
-	onClick?: () => void;
+	btnSize?: btnSizes;
+	btnStyles?: btnStyles;
+	hover?: boolean;
+	focus?: boolean;
+	disabled?: boolean;
+	social?: "google";
+	fullWidth?: boolean;
+	children?: React.ReactNode;
 }
 
-export default function Button({
-	className,
-	primary = false,
-	backgroundColor,
-	social,
-	size = "medium",
-	children,
-	onClick,
-	...props
-}: Props): JSX.Element {
-	const mode = primary ? styles.btn_primary : styles.btn_secondary;
-	const btn_size =
-		size === "medium"
-			? styles.btn_medium
-			: size === "small"
-			? styles.btn_small
-			: styles.btn_large;
-	const btn_social = !social
-		? undefined
-		: social === "google"
-		? styles.google
-		: social === "kakao"
-		? styles.kakao
-		: styles.naver;
+const Button = (
+	{
+		type = "button",
+		className,
+		btnSize = "medium",
+		btnStyles = "default",
+		hover = false,
+		focus = false,
+		disabled = false,
+		social,
+		fullWidth,
+		children,
+		...props
+	}: Props,
+	ref: React.Ref<HTMLButtonElement>,
+) => {
 	return (
-		<div className={classNames(className)}>
-			<button
-				type="button"
-				className={classNames(styles.btn, mode, btn_size, btn_social)}
-				style={{ backgroundColor }}
-				onClick={onClick}
-				{...props}
-			>
-				{social && <img src={`/${social}.svg`} alt="" />}
-				{children}
-			</button>
-		</div>
+		<button
+			ref={ref}
+			type={type}
+			className={classNames(
+				className,
+				styles.ctn,
+				styles[btnStyles],
+				styles[btnSize],
+				{
+					[styles.fullWidth]: fullWidth,
+					[styles.hover]: hover,
+					[styles.focus]: focus,
+					[styles.disabled]: disabled,
+					[styles.google]: social === "google",
+				},
+			)}
+			{...props}
+		>
+			{children}
+		</button>
 	);
-}
+};
+
+export default forwardRef(Button);
