@@ -1,17 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
-import styles from "./List.module.scss";
-
-/**
- * This is an example of animating shared layouts in Framer Motion 2.
- *
- * The open state of each panel is contained locally to that component. Wrapping
- * them all in the same AnimateSharedLayout component allows them all to animate
- * in response to state changes that affect each other's layout.
- *
- * Try removing AnimateSharedLayout to see how that affects the animation.
- */
+import styles from "./ListCarousel.module.scss";
 
 export default function FramerList(): JSX.Element {
 	return (

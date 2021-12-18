@@ -1,30 +1,8 @@
-import React from "react";
-import { useState } from "react";
+import React, { FC, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
-import { images } from "./image-data";
-import styles from "./example.module.scss";
-
-const variants = {
-	enter: (direction: number) => {
-		return {
-			x: direction > 0 ? 1000 : -1000,
-			opacity: 0,
-		};
-	},
-	center: {
-		zIndex: 1,
-		x: 0,
-		opacity: 1,
-	},
-	exit: (direction: number) => {
-		return {
-			zIndex: 0,
-			x: direction < 0 ? 1000 : -1000,
-			opacity: 0,
-		};
-	},
-};
+import { carouselVar } from "@src/utils/framer-vars";
+import styles from "./carousel.module.scss";
 
 /**
  * Experimenting with distilling swipe offset and velocity into a single variable, so the
@@ -37,7 +15,11 @@ const swipePower = (offset: number, velocity: number) => {
 	return Math.abs(offset) * velocity;
 };
 
-export default function Example(): JSX.Element {
+interface CarouselProps {
+	images: string[];
+}
+
+const Carousel: FC<CarouselProps> = ({ images }) => {
 	const [[page, direction], setPage] = useState([0, 0]);
 
 	// We only have 3 images, but we paginate them absolutely (ie 1, 2, 3, 4, 5...) and
@@ -54,10 +36,10 @@ export default function Example(): JSX.Element {
 		<div className={styles.container}>
 			<AnimatePresence initial={false} custom={direction}>
 				<motion.img
-					key={page}
+					key={`caroulse-${page}`}
 					src={images[imageIndex]}
 					custom={direction}
-					variants={variants}
+					variants={carouselVar}
 					initial="enter"
 					animate="center"
 					exit="exit"
@@ -87,4 +69,6 @@ export default function Example(): JSX.Element {
 			</div>
 		</div>
 	);
-}
+};
+
+export default Carousel;

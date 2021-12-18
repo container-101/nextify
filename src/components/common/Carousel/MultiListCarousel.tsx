@@ -1,9 +1,10 @@
-import React from "react";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { wrap } from "popmotion";
-import { images } from "./image-data";
-import styles from "./MultiList.module.scss";
+import React, { FC, useState } from "react";
+import { motion } from "framer-motion";
+import styles from "./MultiListCarousel.module.scss";
+
+interface MultiListCarouselProps {
+	images: string[];
+}
 
 /**
  * Experimenting with distilling swipe offset and velocity into a single variable, so the
@@ -12,15 +13,20 @@ import styles from "./MultiList.module.scss";
  * just distance thresholds and velocity > 0.
  */
 const swipeConfidenceThreshold = 5000;
-const swipePower = (offset, velocity) => {
+const swipePower = (offset: number, velocity: number) => {
 	return Math.abs(offset) * velocity;
 };
 
-export default function MultiList(): JSX.Element {
+const MultiListCarousel: FC<MultiListCarouselProps> = ({ images }) => {
 	const [position, setPosition] = useState(1);
 
-	const paginate = (newDirection) => {
-		setPosition(position + newDirection);
+	const paginate = (newDirection: number) => {
+		const newPos = position + newDirection;
+		let result;
+		if (newPos > images.length) result = 1;
+		else if (newPos < 1) result = images.length;
+		else result = newPos;
+		setPosition(result);
 	};
 
 	return (
@@ -29,7 +35,7 @@ export default function MultiList(): JSX.Element {
 				{images.map((image, index) => (
 					<motion.div
 						className={styles.imageContainer}
-						key={index}
+						key={`multicarousel-${index}`}
 						animate={{
 							left: `${(index - position) * 31 - 30}vw`,
 							scale: index === position ? 0.5 : 0.5,
@@ -44,7 +50,6 @@ export default function MultiList(): JSX.Element {
 							} else if (swipe > swipeConfidenceThreshold) {
 								paginate(-1);
 							}
-							// console.log(offset, velocity);
 						}}
 					>
 						<img src={image} alt="d" />
@@ -59,4 +64,6 @@ export default function MultiList(): JSX.Element {
 			</div>
 		</div>
 	);
-}
+};
+
+export default MultiListCarousel;

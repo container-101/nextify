@@ -29,10 +29,15 @@
 
 @mixin removeScroll {
 	-ms-overflow-style: none;
-	scrollbar-width: none; /* Firefox */
 	&::-webkit-scrollbar {
 		display: none;
 	}
+}
+
+@mixin DisableUserSelect {
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 @mixin ImageInnerText {
