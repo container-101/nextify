@@ -11,4 +11,9 @@ module.exports = {
 	core: {
 		builder: "webpack5",
 	},
+	webpackFinal: async (baseConfig) => {
+		const { basePath } = require('../next.config.js');
+
+		return { ...baseConfig };
+	  },
 };

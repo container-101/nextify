@@ -56,6 +56,10 @@ module.exports = {
 					loader: require.resolve("sass-loader"),
 					options: {
 						implementation: require("sass"),
+						sassOptions: {
+							indentWidth: 4,
+							includePaths: [path.resolve(__dirname, "../src/styles")],
+						},
 					},
 				},
 			],
