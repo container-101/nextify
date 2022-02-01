@@ -3,19 +3,19 @@ import { useModal } from '@src/context/ModalContext'
 import ModalPortal from './ModalPortal'
 import { TModal } from '@interface/modal-type'
 import { SignInModal } from '@components/modal'
-import ModalBase from './Modalbase'
+import ModalBase from './ModalBase'
 
 const ModalContainer: FC = () => {
-  const { modal, closeModal } = useModal()
+  const { modal, modalTitle, closeModal } = useModal()
 
   const SelectRenderingModal: { [keys in TModal]: JSX.Element } = {
     SIGNUP: <div>abc</div>,
-    SIGNIN: <SignInModal onClose={closeModal} />,
+    SIGNIN: <SignInModal />,
   }
 
   return (
     <ModalPortal>
-      <ModalBase show={modal ? true : false} onClose={closeModal}>
+      <ModalBase title={modalTitle} show={modal ? true : false} onClose={closeModal}>
         {modal ? SelectRenderingModal[modal] : null}
       </ModalBase>
     </ModalPortal>

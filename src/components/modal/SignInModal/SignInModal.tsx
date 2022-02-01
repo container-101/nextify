@@ -1,32 +1,18 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { useState } from 'react'
+import { SignInInputShape } from '@interface/modal-input-shape'
 import styles from './SignInModal.module.scss'
-import { ModalLayout } from '@components/layout'
 
-interface IProps {
-  onClose: () => void
-}
-
-interface IInputs {
-  email: string
-  pwd: string
-}
-
-const SignInModal = ({ onClose }: IProps) => {
-  const [Inputs, setInputs] = useState<IInputs>({
+const SignInModal = () => {
+  const [Inputs, setInputs] = useState<SignInInputShape>({
     email: '',
     pwd: '',
   })
 
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (e) => {
     const { name, value } = e.target
-    console.log(name, value)
   }
 
-  return (
-    <ModalLayout onClose={onClose}>
-      <div className={styles.cnt}>{'abc'}</div>
-    </ModalLayout>
-  )
+  return <div className={styles.cnt}>{'signinModal'}</div>
 }
 
 export default SignInModal
