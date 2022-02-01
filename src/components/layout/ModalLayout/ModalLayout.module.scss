@@ -1,0 +1,33 @@
+.modal_con {
+  position: relative;
+  z-index: 998;
+  max-width: 500px;
+  min-width: 300px;
+  min-height: 100px;
+  width: 33%;
+  padding: 20px;
+  border-radius: 5px;
+  background: #fff;
+  transform: translateY(80px);
+  transition: transform ease 0.3s 0.1s;
+  & .contents {
+    padding: 20px 0;
+  }
+  & .bottom {
+    text-align: right;
+    margin-top: 10px;
+  }
+}
+
+.modal_wrap.active .modal_con {
+  position: relative;
+  z-index: 999;
+  max-width: 500px;
+  min-width: 300px;
+  min-height: 100px;
+  width: 33%;
+  padding: 20px;
+  border-radius: 5px;
+  background: #fff;
+  transform: translateY(0px);
+}

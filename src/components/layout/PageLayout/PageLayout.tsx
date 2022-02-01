@@ -13,7 +13,7 @@ interface Props {
   primaryHeader?: boolean
 }
 
-const Layout: FC<Props> = ({ className, children, fullWidth = false, fixedHeight = false }) => {
+const PageLayout: FC<Props> = ({ className, children, fullWidth = false, fixedHeight = false }) => {
   return (
     <div className={classNames(styles.container, className)}>
       {fixedHeight && (
@@ -35,4 +35,4 @@ const Layout: FC<Props> = ({ className, children, fullWidth = false, fixedHeight
   )
 }
 
-export default Layout
+export default PageLayout

@@ -3,6 +3,8 @@ import Head from 'next/head'
 import axios from 'axios'
 import type { AppProps } from 'next/app'
 import '@styles/main.scss'
+import { ModalContainer } from '@src/containers'
+import { ModalProvider } from '@src/context/ModalContext'
 
 axios.defaults.withCredentials = true
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL
@@ -18,7 +20,10 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       </Head>
-      <Component {...pageProps} />
+      <ModalProvider>
+        <Component {...pageProps} />
+        <ModalContainer />
+      </ModalProvider>
     </>
   )
 }
