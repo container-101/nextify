@@ -3,10 +3,10 @@ import { PageLayout } from '@components/layout'
 import { useModal } from '@src/context/ModalContext'
 
 const Home: FC = () => {
-  const { openSignInModal } = useModal()
+  const { openSignUpModal } = useModal()
 
   const handleOnClick = () => {
-    openSignInModal()
+    openSignUpModal()
   }
 
   return (

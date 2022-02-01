@@ -5,14 +5,14 @@ import styles from './SignInModal.module.scss'
 const SignInModal = () => {
   const [Inputs, setInputs] = useState<SignInInputShape>({
     email: '',
-    pwd: '',
+    password: '',
   })
 
   const handleOnChange = (e) => {
     const { name, value } = e.target
   }
 
-  return <div className={styles.cnt}>{'signinModal'}</div>
+  return <div className={styles.cnt}></div>
 }
 
 export default SignInModal

@@ -1,10 +1,10 @@
 export interface SignInInputShape {
   email: string
-  pwd: string
+  password: string
 }
 
 export interface SignUpInputShape {
   email: string
   username: string
-  pwd: string
+  password: string
 }

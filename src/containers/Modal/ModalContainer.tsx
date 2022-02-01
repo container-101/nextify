@@ -2,14 +2,14 @@ import React, { FC } from 'react'
 import { useModal } from '@src/context/ModalContext'
 import ModalPortal from './ModalPortal'
 import { TModal } from '@interface/modal-type'
-import { SignInModal } from '@components/modal'
+import { SignInModal, SignUpModal } from '@components/modal'
 import ModalBase from './ModalBase'
 
 const ModalContainer: FC = () => {
   const { modal, modalTitle, closeModal } = useModal()
 
   const SelectRenderingModal: { [keys in TModal]: JSX.Element } = {
-    SIGNUP: <div>abc</div>,
+    SIGNUP: <SignUpModal />,
     SIGNIN: <SignInModal />,
   }
 
