@@ -1,20 +1,18 @@
-import React, { FC, useEffect, useState } from 'react'
-import ReactMapGL, { Marker, Popup, FlyToInterpolator } from 'react-map-gl'
+import React, { FC, useState } from 'react'
+import ReactMapGL, { Popup, FlyToInterpolator } from 'react-map-gl'
 import type { GPSLocationShape } from '@interface/map-box-shape'
 import styles from './MapBox.module.scss'
+import useWindowSize from '@src/hooks/useWindowSize'
 
 interface MapShape {
-  mapWidth?: string
-  mapHeight?: string
   location: GPSLocationShape
 }
 
-const Map: FC<MapShape> = ({ mapWidth = '100%', mapHeight = '100%', location }) => {
+const Map: FC<MapShape> = ({ location }) => {
+  const { width, height } = useWindowSize(1000)
   const [viewPort, setViewPort] = useState({
     latitude: location.latitude,
     longitude: location.longitude,
-    width: mapWidth,
-    height: mapHeight,
     zoom: 13,
   })
 
@@ -22,6 +20,8 @@ const Map: FC<MapShape> = ({ mapWidth = '100%', mapHeight = '100%', location }) 
     <div className={styles.mapbox}>
       <ReactMapGL
         {...viewPort}
+        width={width}
+        height={height}
         mapStyle="mapbox://styles/mapbox/streets-v11"
         mapboxApiAccessToken={process.env.NEXT_PUBLIC_MAPBOX_KEY}
         transitionInterpolator={new FlyToInterpolator()}

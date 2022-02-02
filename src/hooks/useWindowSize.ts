@@ -1,24 +1,27 @@
 import { useState, useEffect } from 'react'
 import { IWindowSize } from '@src/core/interface'
+import _ from 'lodash'
 
-export default function useWindowSize(): IWindowSize {
+const useWindowSize = (delay: number = 0): IWindowSize => {
   const [windowSize, setWindowSize] = useState<IWindowSize>({
     width: undefined,
     height: undefined,
-    mobile: undefined,
   })
+
+  const handleResize = _.throttle(() => {
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    })
+  }, delay)
+
   useEffect(() => {
-    function handleResize() {
-      const mobile = window.innerWidth <= 768
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-        mobile: mobile,
-      })
-    }
     window.addEventListener('resize', handleResize)
     handleResize()
     return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  }, [handleResize])
+
   return windowSize
 }
+
+export default useWindowSize
