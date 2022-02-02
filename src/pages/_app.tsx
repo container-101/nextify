@@ -2,7 +2,10 @@ import React from 'react'
 import Head from 'next/head'
 import axios from 'axios'
 import type { AppProps } from 'next/app'
+// external module css
+import 'mapbox-gl/dist/mapbox-gl.css'
 import '@styles/main.scss'
+
 import { ModalContainer } from '@src/containers'
 import { ModalProvider } from '@src/context/ModalContext'
 
