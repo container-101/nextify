@@ -10998,6 +10998,13 @@ react-sizeme@^3.0.1:
     shallowequal "^1.1.0"
     throttle-debounce "^3.0.1"
 
+react-social-icons@^5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/react-social-icons/-/react-social-icons-5.10.0.tgz#f18903cf05d9464ccb9e3f9d22675911feb426c3"
+  integrity sha512-AEuSwuOj3yKiB7MzyKXd3NJDXrFPGRVoBgKOWCD2p4FhRS+YLa3R6wezTQ8HPzjqwYrcqHy//YCzzHRlgF9EWg==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-syntax-highlighter@^13.5.3:
   version "13.5.3"
   resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-13.5.3.tgz#9712850f883a3e19eb858cf93fad7bb357eea9c6"

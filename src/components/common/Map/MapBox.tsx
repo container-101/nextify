@@ -4,15 +4,17 @@ import type { GPSLocationShape } from '@interface/map-box-shape'
 import styles from './MapBox.module.scss'
 
 interface MapShape {
+  mapWidth?: string
+  mapHeight?: string
   location: GPSLocationShape
 }
 
-const Map: FC<MapShape> = ({ location }) => {
+const Map: FC<MapShape> = ({ mapWidth = '100%', mapHeight = '100%', location }) => {
   const [viewPort, setViewPort] = useState({
     latitude: location.latitude,
     longitude: location.longitude,
-    width: '100%',
-    height: '100%',
+    width: mapWidth,
+    height: mapHeight,
     zoom: 13,
   })
 

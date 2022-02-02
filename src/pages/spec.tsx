@@ -1,15 +1,16 @@
 import { Button, Map } from '@components/common'
 import { useModal } from '@src/context/ModalContext'
 import useGPSLocation from '@hooks/useGPSLocation'
-import React, { FC, Fragment } from 'react'
+import React, { FC } from 'react'
 import { geolocationOptions } from '@src/utils/geolocation'
+import { PageLayout } from '@components/layout'
 
 const SpecPage: FC = () => {
   const { openSignInModal, openSignUpModal } = useModal()
   const { location, error } = useGPSLocation(geolocationOptions)
 
   return (
-    <Fragment>
+    <PageLayout fullWidth fixedHeight>
       {/* <div style={{ display: 'inline-flex', flexDirection: 'column', gap: '10px' }}>
         <Button btnSize="medium" btnStyles="primary" onClick={() => openSignUpModal()}>
           open signup modal
@@ -18,10 +19,8 @@ const SpecPage: FC = () => {
           open signin modal
         </Button>
       </div> */}
-      <div style={{ width: '1000px' }}>
-        <Map location={location} />
-      </div>
-    </Fragment>
+      <Map location={location} />
+    </PageLayout>
   )
 }
 

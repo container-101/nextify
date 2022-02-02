@@ -6,7 +6,7 @@ module.exports = {
     includePaths: [path.join(__dirname, './src/styles')],
   },
   images: {
-    domains: ['user-images.githubusercontent.com'],
+    domains: ['user-images.githubusercontent.com', 'localhost'],
   },
   webpack(config) {
     config.module.rules.push({

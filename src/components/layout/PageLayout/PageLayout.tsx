@@ -1,6 +1,9 @@
-import classNames from 'classnames'
 import React, { FC } from 'react'
+import classNames from 'classnames'
 import styles from './PageLayout.module.scss'
+import Footer from './Footer/Footer'
+import Header from './Header/Header'
+import PageTransition from './PageTransition/PageTransition'
 
 interface Props {
   className?: string
@@ -11,11 +14,19 @@ interface Props {
   backwardURL?: string
   backwardEnabled?: boolean
   primaryHeader?: boolean
+  enablePageTransition?: boolean
 }
 
-const PageLayout: FC<Props> = ({ className, children, fullWidth = false, fixedHeight = false }) => {
+const PageLayout: FC<Props> = ({
+  className,
+  children,
+  fullWidth = false,
+  fixedHeight = false,
+  removeFooter = false,
+  enablePageTransition = false,
+}) => {
   return (
-    <div className={classNames(styles.container, className)}>
+    <main className={classNames(styles.container, className)}>
       {fixedHeight && (
         <style jsx global>{`
           body {
@@ -23,15 +34,17 @@ const PageLayout: FC<Props> = ({ className, children, fullWidth = false, fixedHe
           }
         `}</style>
       )}
+      <Header />
       <div
         className={classNames(styles.content, {
           [styles['full-width']]: fullWidth,
           [styles['fixed-height']]: fixedHeight,
         })}
       >
-        {children}
+        {enablePageTransition ? <PageTransition>{children}</PageTransition> : <>{children}</>}
       </div>
-    </div>
+      {!removeFooter || !fixedHeight || <Footer />}
+    </main>
   )
 }
 
