@@ -1,0 +1,67 @@
+@import 'mixins';
+
+.cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  @include md {
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 6rem;
+  }
+}
+
+.cnt .forbid {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+  * + * {
+    margin-left: 0.5rem;
+  }
+  @include md {
+    * + * {
+      margin-top: 1.25rem;
+    }
+  }
+}
+
+.forbid .text {
+  font-weight: 800px;
+  font-size: 3.75rem;
+  line-height: 2.25rem;
+  letter-spacing: -0.025em;
+  color: rgb(17 24 39);
+  @include md {
+    font-size: 4rem;
+    line-height: 3.5rem;
+    border-radius: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.recommend .text_sorry {
+  @include md {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: normal;
+  }
+}
+
+.recommend .text_worry {
+  @include md {
+    margin-bottom: 2rem;
+  }
+}
+
+.back {
+  display: inline;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: white;
+  background-color: $font-link;
+  outline: none;
+}

@@ -2,7 +2,11 @@ import React, { FC } from 'react'
 import { PageLayout } from '@components/layout'
 
 const HomePage: FC = () => {
-  return <PageLayout></PageLayout>
+  return (
+    <PageLayout>
+      <div></div>
+    </PageLayout>
+  )
 }
 
 export default HomePage

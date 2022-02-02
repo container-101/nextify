@@ -1,10 +1,8 @@
 import React, { useCallback, useState } from 'react'
-import Link from 'next/link'
 import classNames from 'classnames'
-import { Image } from '@components/common'
+import { Image, Link } from '@components/common'
 import SideMenu from './SideMenu/SideMenu'
 import styles from './Header.module.scss'
-import { getImageURL } from '@utils/urls'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)

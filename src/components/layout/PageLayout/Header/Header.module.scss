@@ -14,7 +14,7 @@
   background: $base-color;
   border-bottom: 1px solid #fff;
 
-  @include mobile {
+  @include max-w-md {
     padding: $mb-header-padding 80px;
   }
 }
@@ -35,13 +35,13 @@
 
 .popup {
   justify-content: flex-end;
-  @include mobile {
+  @include max-w-md {
     visibility: hidden;
   }
 }
 
 .logo_img {
-  @include mobile {
+  @include max-w-md {
     display: none;
   }
 }

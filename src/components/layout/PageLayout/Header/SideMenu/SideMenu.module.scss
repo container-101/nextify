@@ -2,10 +2,9 @@
 
 .container {
   z-index: 100;
-  @include desktop {
-    display: none;
-  }
-  @include mobile {
+  display: none;
+  @include max-w-md {
+    display: unset;
     nav {
       position: fixed;
       top: 0;

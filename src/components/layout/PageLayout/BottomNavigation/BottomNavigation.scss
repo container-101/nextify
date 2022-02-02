@@ -2,7 +2,7 @@
 
 .Nav-container {
   display: none;
-  @include mobile {
+  @include max-w-md {
     display: flex;
     position: fixed;
     justify-content: space-between;
@@ -17,7 +17,7 @@
 }
 
 .Nav-content {
-  @include mobile {
+  @include max-w-md {
     height: 40px;
     display: flex;
     align-items: center;

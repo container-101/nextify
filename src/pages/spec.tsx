@@ -10,7 +10,7 @@ const SpecPage: FC = () => {
   const { location, error } = useGPSLocation(geolocationOptions)
 
   return (
-    <PageLayout fullWidth fixedHeight>
+    <PageLayout fullWidth fixedHeight disableTransition>
       {/* <div style={{ display: 'inline-flex', flexDirection: 'column', gap: '10px' }}>
         <Button btnSize="medium" btnStyles="primary" onClick={() => openSignUpModal()}>
           open signup modal

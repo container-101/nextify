@@ -6,7 +6,6 @@ import Header from './Header/Header'
 import PageTransition from './PageTransition/PageTransition'
 
 interface Props {
-  className?: string
   fullWidth?: boolean
   fixedHeight?: boolean
   hideMobileHeader?: boolean
@@ -14,19 +13,18 @@ interface Props {
   backwardURL?: string
   backwardEnabled?: boolean
   primaryHeader?: boolean
-  enablePageTransition?: boolean
+  disableTransition?: boolean
 }
 
 const PageLayout: FC<Props> = ({
-  className,
   children,
   fullWidth = false,
   fixedHeight = false,
   removeFooter = false,
-  enablePageTransition = false,
+  disableTransition = false,
 }) => {
   return (
-    <main className={classNames(styles.container, className)}>
+    <main className={styles.container}>
       {fixedHeight && (
         <style jsx global>{`
           body {
@@ -41,7 +39,7 @@ const PageLayout: FC<Props> = ({
           [styles['fixed-height']]: fixedHeight,
         })}
       >
-        {enablePageTransition ? <PageTransition>{children}</PageTransition> : <>{children}</>}
+        {!disableTransition ? <PageTransition>{children}</PageTransition> : <>{children}</>}
       </div>
       {!removeFooter || !fixedHeight || <Footer />}
     </main>

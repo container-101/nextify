@@ -9,7 +9,7 @@
   width: 100%;
   max-width: $content-max-width;
   padding: 20px 40px 80px 40px;
-  @include mobile {
+  @include max-w-md {
     padding: 20px 30px 80px 30px;
   }
 }
@@ -30,7 +30,7 @@
     font-weight: normal;
     gap: 16px;
   }
-  @include mobile {
+  @include max-w-md {
     &:not(:last-child) {
       flex-direction: column;
     }
@@ -67,7 +67,7 @@
     line-height: 12px;
     color: #898989;
   }
-  @include mobile {
+  @include max-w-md {
     & + & {
       margin: 6vw 0 0 0;
     }
