@@ -1,8 +1,16 @@
 @import 'mixins';
 
 .container {
-  z-index: 100;
+  z-index: 20;
   display: none;
+  ul {
+    visibility: hidden;
+  }
+  &.active {
+    ul {
+      visibility: visible;
+    }
+  }
   @include max-w-md {
     display: unset;
     nav {
@@ -51,9 +59,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  // right: 0;
   bottom: 0;
-  width: 40vw;
+  width: 50vw;
   background: #fff;
 }
 
