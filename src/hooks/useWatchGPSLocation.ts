@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { Location } from '@interface/map-box-shape'
+import { GPSLocationShape } from '@interface/map-box-shape'
 
 const useWatchLocation = (options = {}) => {
-  const [location, setLocation] = useState<Location>(null)
+  const [location, setLocation] = useState<GPSLocationShape>(null)
   const [error, setError] = useState<string>('')
   const locationWatchId = useRef(null)
 
