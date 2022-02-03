@@ -11,7 +11,7 @@ interface IModalBase {
 
 const ModalBase: FC<IModalBase> = ({
   show,
-  title = process.env.NEXT_PUBLIC_APP_NAME,
+  title = process.env.NEXT_PUBLIC_APP_TITLE,
   onClose,
   children,
 }) => {
@@ -25,7 +25,7 @@ const ModalBase: FC<IModalBase> = ({
       />
       <div className={classNames(styles.con)}>
         <div className={styles.logo_image}>
-          <Image src="/favicon.ico" width={100} height={100} />
+          <Image src="/logo.ico" width={100} height={100} alt="logo" />
         </div>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.contents}>{children}</div>

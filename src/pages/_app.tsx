@@ -16,8 +16,8 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>
-        <title>template</title>
-        <link rel="icon" href="/images/favicon.ico" />
+        <title>{process.env.NEXT_PUBLIC_APP_TITLE}</title>
+        <link rel="icon" href="/logo.ico" />
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
