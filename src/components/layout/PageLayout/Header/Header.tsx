@@ -20,7 +20,7 @@ const Header = () => {
           <div className={styles.item}>
             <Link href="/">
               <span className={styles.logo_img}>
-                <Image width={36} height={36} src={'/logo.svg'} alt="logo" />
+                <Image width={40} height={40} src={'/logo.svg'} alt="logo" />
               </span>
             </Link>
           </div>
@@ -31,7 +31,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <SideMenu onClose={() => setIsOpen(false)} />
+      <SideMenu />
     </>
   )
 }

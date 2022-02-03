@@ -1,4 +1,4 @@
-import React, { FocusEventHandler, useCallback, useRef } from 'react'
+import React, { FC, FocusEventHandler, useCallback, useRef } from 'react'
 import { framerSidebar } from '@utils/framerVar'
 import { motion, useCycle } from 'framer-motion'
 import { useDimensions } from '@hooks/useDimensions'
@@ -6,11 +6,7 @@ import SideNavigation from './SideMenuNav'
 import SideMenuToggle from './SideMenuToggle'
 import styles from './SideMenu.module.scss'
 
-interface ISideMenuProps {
-  onClose: () => void
-}
-
-const SideMenu = ({ onClose }: ISideMenuProps) => {
+const SideMenu: FC = () => {
   const [isOpen, toggleOpen] = useCycle(false, true)
   const containerRef = useRef<HTMLElement>(null)
   const { height } = useDimensions(containerRef)
@@ -18,10 +14,10 @@ const SideMenu = ({ onClose }: ISideMenuProps) => {
   const handleBlur: FocusEventHandler = useCallback(
     (e) => {
       if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-        onClose?.()
+        toggleOpen()
       }
     },
-    [onClose]
+    [toggleOpen]
   )
 
   return (
