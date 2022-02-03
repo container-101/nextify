@@ -4,6 +4,7 @@ import styles from './PageLayout.module.scss'
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
 import PageTransition from './PageTransition/PageTransition'
+import BottomNavigation from './BottomNavigation/BottomNavigation'
 
 interface Props {
   fullWidth?: boolean
@@ -42,6 +43,7 @@ const PageLayout: FC<Props> = ({
         {!disableTransition ? <PageTransition>{children}</PageTransition> : <>{children}</>}
       </div>
       {!removeFooter || !fixedHeight || <Footer />}
+      {/* <BottomNavigation /> */}
     </main>
   )
 }

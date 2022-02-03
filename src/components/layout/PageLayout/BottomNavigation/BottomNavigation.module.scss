@@ -1,22 +1,20 @@
 @import 'mixins';
 
-.Nav-container {
+.cnt {
   display: none;
   @include max-w-md {
     display: flex;
     position: fixed;
     justify-content: space-between;
-
     bottom: 0;
-
     width: 100%;
-    background: linear-gradient(to right, rgba(#228be6, 0.5), rgba(#06d6a0, 0.5));
+    background: $base-color;
     border-bottom: 1px solid #fff;
     padding: 0px 60px;
   }
 }
 
-.Nav-content {
+.con {
   @include max-w-md {
     height: 40px;
     display: flex;

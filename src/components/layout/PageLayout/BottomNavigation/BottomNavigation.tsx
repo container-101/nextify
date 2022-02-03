@@ -1,32 +1,32 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import './BottomNavigation.scss'
+import { Link, Image } from '@components/common'
+import styles from './BottomNavigation.module.scss'
 
-const MBNavigation = () => {
+const BottomNavigation = () => {
   return (
-    <nav className="Nav-container">
-      <div className="Nav-content">
-        <NavLink to="/">
-          <img src="/logo.png" alt="home" />
-        </NavLink>
+    <nav className={styles.cnt}>
+      <div className={styles.con}>
+        <Link href="/">
+          <Image src="/logo.png" width={30} height={30} alt="home" />
+        </Link>
       </div>
-      <div className="Nav-content">
-        <NavLink to="/account">
-          <img src="/assets/account.svg" alt="account" />
-        </NavLink>
+      <div className={styles.con}>
+        <Link href="/account">
+          <Image src="/logo.png" width={30} height={30} alt="home" />
+        </Link>
       </div>
-      <div className="Nav-content">
-        <NavLink to="/noti">
-          <img src="/assets/notification.svg" alt="noti" />
-        </NavLink>
+      <div className={styles.con}>
+        <Link href="/noti">
+          <Image src="/logo.png" width={30} height={30} alt="home" />
+        </Link>
       </div>
-      <div className="Nav-content">
-        <NavLink to="/star">
-          <img src="assets/star.svg" alt="star" />
-        </NavLink>
+      <div className={styles.con}>
+        <Link href="/star">
+          <Image src="/logo.png" width={30} height={30} alt="home" />
+        </Link>
       </div>
     </nav>
   )
 }
 
-export default MBNavigation
+export default BottomNavigation
