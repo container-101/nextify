@@ -7,9 +7,11 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import 'react-toastify/dist/ReactToastify.css'
 import '@styles/main.scss'
 
+import { ToastContainer } from 'react-toastify'
 import { ModalContainer } from '@src/containers'
 import { ModalProvider } from '@src/context/ModalContext'
-import { ToastContainer } from 'react-toastify'
+import { UserAuthProvider } from '@src/context/UserAuthContext'
+import { Composer } from '@components/common'
 
 axios.defaults.withCredentials = Boolean(process.env.NEXT_PUBLIC_API_WITH_CRED === 'true')
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL
@@ -25,11 +27,11 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       </Head>
-      <ModalProvider>
+      <Composer components={[UserAuthProvider, ModalProvider]}>
         <Component {...pageProps} />
         <ModalContainer />
         <ToastContainer />
-      </ModalProvider>
+      </Composer>
     </>
   )
 }

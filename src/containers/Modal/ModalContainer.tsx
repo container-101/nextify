@@ -1,22 +1,24 @@
 import React, { FC } from 'react'
-import { useModal } from '@src/context/ModalContext'
 import ModalPortal from './ModalPortal'
-import { TModal } from '@interface/modal-type'
+import { ModalShape } from '@interface/modal-type'
 import { SignInModal, SignUpModal } from '@components/modal'
 import ModalBase from './ModalBase'
+import { useCloseModal, useModalInfo, useModalTitle } from '@src/context/ModalContext'
 
 const ModalContainer: FC = () => {
-  const { modal, modalTitle, closeModal } = useModal()
+  const modalInfo = useModalInfo()
+  const modalTitle = useModalTitle()
+  const closeModal = useCloseModal()
 
-  const SelectRenderingModal: { [keys in TModal]: JSX.Element } = {
+  const SelectRenderingModal: { [keys in ModalShape]: JSX.Element } = {
     SIGNUP: <SignUpModal />,
     SIGNIN: <SignInModal />,
   }
 
   return (
     <ModalPortal>
-      <ModalBase title={modalTitle} show={modal ? true : false} onClose={closeModal}>
-        {modal ? SelectRenderingModal[modal] : null}
+      <ModalBase title={modalTitle} show={modalInfo ? true : false} onClose={closeModal}>
+        {modalInfo ? SelectRenderingModal[modalInfo] : null}
       </ModalBase>
     </ModalPortal>
   )
