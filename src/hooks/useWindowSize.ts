@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { IWindowSize } from '@src/core/interface'
-import _ from 'lodash'
+import { throttle } from 'lodash-es'
 
 const useWindowSize = (delay: number = 0): IWindowSize => {
   const [windowSize, setWindowSize] = useState<IWindowSize>({
@@ -8,7 +8,7 @@ const useWindowSize = (delay: number = 0): IWindowSize => {
     height: undefined,
   })
 
-  const handleResize = _.throttle(() => {
+  const handleResize = throttle(() => {
     setWindowSize({
       width: window.innerWidth,
       height: window.innerHeight,
