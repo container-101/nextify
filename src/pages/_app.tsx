@@ -4,10 +4,12 @@ import axios from 'axios'
 import type { AppProps } from 'next/app'
 // external module css
 import 'mapbox-gl/dist/mapbox-gl.css'
+import 'react-toastify/dist/ReactToastify.css'
 import '@styles/main.scss'
 
 import { ModalContainer } from '@src/containers'
 import { ModalProvider } from '@src/context/ModalContext'
+import { ToastContainer } from 'react-toastify'
 
 axios.defaults.withCredentials = Boolean(process.env.NEXT_PUBLIC_API_WITH_CRED === 'true')
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL
@@ -26,6 +28,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <ModalProvider>
         <Component {...pageProps} />
         <ModalContainer />
+        <ToastContainer />
       </ModalProvider>
     </>
   )
