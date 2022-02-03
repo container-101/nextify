@@ -1,15 +1,11 @@
 @import 'mixins';
 
-.container {
-  position: absolute;
-  font-weight: normal;
-  top: 80px;
-  right: 10%;
+.cnt {
+  @include shadow();
+  @include visibility();
+  position: relative;
   background: #ffffff;
-  box-shadow: 0px 4px 11px 5px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  width: 240px;
-  z-index: 20000;
+  width: 25vw;
   outline: none;
   @include max-w-md {
     right: 5%;
@@ -18,12 +14,12 @@
   }
 }
 
-.contents {
-  padding: 32px 0px;
+.con {
+  padding: 2rem 1rem;
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-size: 20px;
+  font-size: 1rem;
   line-height: 23px;
   @include max-w-md {
     font-size: 14px;

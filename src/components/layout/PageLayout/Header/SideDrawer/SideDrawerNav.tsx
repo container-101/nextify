@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { framerSideMenuItem, framerSideNav } from '@utils/framerVar'
-import styles from './SideMenu.module.scss'
+import styles from './SideDrawer.module.scss'
 
 interface ISideMenuProps {
   i: number

@@ -1,46 +1,27 @@
 @use 'sass:math';
 @import 'mixins';
 
-.container {
+.cnt {
   display: flex;
   position: fixed;
   width: 100%;
+  height: $header-height;
   top: 0;
-  z-index: 20;
 
   justify-content: space-between;
-  padding: $header-padding 80px;
+  padding: $header-padding 16px;
 
   background: $base-color;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid rgba($base-color, 0.5);
 
   @include max-w-md {
+    height: $mb-header-height;
     padding: $mb-header-padding 80px;
   }
 }
 
-.content {
-  display: flex;
-  align-items: center;
-  width: math.div(100%, 2);
-}
-
-.item {
-  line-height: $header-font-height;
-}
-
-.logo {
-  justify-content: flex-start;
-}
-
+.logo,
 .popup {
-  justify-content: flex-end;
-  @include max-w-md {
-    visibility: hidden;
-  }
-}
-
-.logo_img {
   @include max-w-md {
     display: none;
   }

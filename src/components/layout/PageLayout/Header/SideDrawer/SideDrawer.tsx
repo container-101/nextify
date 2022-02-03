@@ -2,9 +2,9 @@ import React, { FC, useRef } from 'react'
 import { framerSidebar } from '@utils/framerVar'
 import { motion, useCycle } from 'framer-motion'
 import { useDimensions } from '@hooks/useDimensions'
-import SideNavigation from './SideMenuNav'
-import SideMenuToggle from './SideMenuToggle'
-import styles from './SideMenu.module.scss'
+import SideNavigation from './SideDrawerNav'
+import { ToggleButton } from '@components/common'
+import styles from './SideDrawer.module.scss'
 import classNames from 'classnames'
 
 const SideMenu: FC = () => {
@@ -22,7 +22,7 @@ const SideMenu: FC = () => {
     >
       <motion.div className={styles.background} variants={framerSidebar} />
       <SideNavigation />
-      <SideMenuToggle toggle={() => toggleOpen()} />
+      <ToggleButton isOpen={isOpen} toggle={() => toggleOpen()} />
     </motion.nav>
   )
 }

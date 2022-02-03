@@ -49,7 +49,7 @@ export const framerSidebar = {
     },
   }),
   closed: {
-    clipPath: 'circle(20px at 35px 30px)',
+    clipPath: 'circle(20px at 36px 24px)',
     transition: {
       delay: 0.5,
       type: 'spring',

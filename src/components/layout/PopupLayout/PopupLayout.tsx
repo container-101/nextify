@@ -1,14 +1,15 @@
-import React, { FocusEventHandler, useCallback, useEffect, useRef } from 'react'
 import classNames from 'classnames'
+import { motion } from 'framer-motion'
+import React, { FC, FocusEventHandler, useCallback, useEffect, useRef } from 'react'
 import styles from './PopupLayout.module.scss'
 
-interface Props {
-  children: React.ReactNode
-  className?: string
-  onClose?: () => void
+interface PopupLayoutProps {
+  className: string
+  isOpen: boolean
+  onToggle: () => void
 }
 
-export default function PopupLayout({ className, children, onClose }: Props): JSX.Element {
+const PopupLayout: FC<PopupLayoutProps> = ({ children, className, isOpen, onToggle }) => {
   const containerRef = useRef(null)
 
   useEffect(() => {
@@ -18,15 +19,21 @@ export default function PopupLayout({ className, children, onClose }: Props): JS
   const handleBlur: FocusEventHandler = useCallback(
     (e) => {
       if (!e.currentTarget.contains(e.relatedTarget as Node)) {
-        onClose?.()
+        onToggle()
       }
     },
-    [onClose]
+    [onToggle]
   )
 
   return (
-    <div ref={containerRef} className={classNames(className, styles.container)} onBlur={handleBlur}>
-      <div className={styles.contents}>{children}</div>
-    </div>
+    <motion.div
+      ref={containerRef}
+      className={classNames(className, styles.cnt, { [styles.active]: isOpen })}
+      onBlur={handleBlur}
+    >
+      <div className={styles.con}>{children}</div>
+    </motion.div>
   )
 }
+
+export default PopupLayout

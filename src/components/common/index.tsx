@@ -1,4 +1,5 @@
 export { default as Button } from './Button/Button'
+export { default as ToggleButton } from './Button/ToggleButton'
 export { default as InputBox } from './InputBox/InputBox'
 export { default as Map } from './Map/MapBox'
 export { default as Range } from './Range/Range'
