@@ -9,7 +9,7 @@ import '@styles/main.scss'
 import { ModalContainer } from '@src/containers'
 import { ModalProvider } from '@src/context/ModalContext'
 
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = Boolean(process.env.NEXT_PUBLIC_API_WITH_CRED === 'true')
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
