@@ -1,19 +1,15 @@
-const path = require("path");
+const path = require('path')
 
 module.exports = {
-	stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
-	addons: [
-		"@storybook/addon-links",
-		"@storybook/addon-essentials",
-		"@storybook/addon-actions",
-	],
-	presets: [path.resolve(__dirname, "./next-preset.js")],
-	core: {
-		builder: "webpack5",
-	},
-	webpackFinal: async (baseConfig) => {
-		const { basePath } = require('../next.config.js');
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/addon-actions'],
+  presets: [path.resolve(__dirname, './next-preset.js')],
+  core: {
+    builder: 'webpack5',
+  },
+  webpackFinal: async (baseConfig) => {
+    const { basePath } = require('../next.config.js')
 
-		return { ...baseConfig };
-	  },
-};
+    return { ...baseConfig }
+  },
+}
