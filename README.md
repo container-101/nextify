@@ -6,7 +6,16 @@
 1. git clone repository_name
 2. npm install -g yarn
 3. yarn install
-4. yarn dev
+4. yarn prepare(husky hook을 사용하기 위함)
+5. yarn dev
+```
+
+## Template 특이사항
+
+```test
+1. 새로운 모달을 만들고 싶을시 src/components/modal 안에 모달 컴포넌트를 작성한다
+2. src/core/interface/modal-type.ts interface안에 자신이 정의한 모달의 이름을 정의한다
+3. src/containers/Modal/ModalContainer안에 SelectRenderingModal 함수에 자신이 정의한 모달의 이름을 키 값으로 넣을시 해당 컴포넌트를 반환하는 값을 넣는다(2번을 하면 자동으로 정의해달라는 에러가 뜹니다)
 ```
 
 ## 코드 작성전 유의사항
