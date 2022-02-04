@@ -4,7 +4,6 @@ import axios from 'axios'
 import qs from 'qs'
 import type { AppProps } from 'next/app'
 // external module css
-import 'mapbox-gl/dist/mapbox-gl.css'
 import 'react-toastify/dist/ReactToastify.css'
 import '@styles/main.scss'
 

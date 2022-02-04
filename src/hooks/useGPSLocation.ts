@@ -1,4 +1,4 @@
-import { GPSLocationShape } from '@interface/map-box-shape'
+import { GPSLocationShape } from '@interface/map-shape'
 import { useCallback, useEffect, useState } from 'react'
 
 const useGPSLocation = (options: PositionOptions) => {
