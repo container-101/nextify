@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html * {
+  color: #000;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+*,
+*:before,
+*:after {
+  color: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}

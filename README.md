@@ -10,6 +10,16 @@
 5. yarn dev
 ```
 
+## Heroku 배포 방식
+
+```bash
+1. yarn global add heroku-dotenv
+2. .env파일을 production에(Ex. NODE_ENV=production, ...) 맞게 작성
+3. heroku-dotnev push
+4. git push heroku main(develop브랜치를 넣고 싶을시 develop:main)
+5. 배포 확인
+```
+
 ## Template 특이사항
 
 ```test

@@ -25,7 +25,7 @@
       "@interface/*": ["./src/core/interface/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@pages/*": ["./src/pagaes/*"],
-      "@styles/*": ["./src/styles/*"],
+      "@css/*": ["./src/css/*"],
       "@utils/*": ["./src/utils/*"]
     }
   },

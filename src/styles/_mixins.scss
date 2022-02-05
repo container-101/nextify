@@ -1,41 +1,3 @@
-@import 'variables';
-
-@mixin sm {
-  @media (min-width: #{$bp-sm}) {
-    @content;
-  }
-}
-
-@mixin md {
-  @media (min-width: #{$bp-md}) {
-    @content;
-  }
-}
-
-@mixin max-w-md {
-  @media (max-width: #{$bp-md}) {
-    @content;
-  }
-}
-
-@mixin lg {
-  @media (min-width: #{$bp-lg}) {
-    @content;
-  }
-}
-
-@mixin xl {
-  @media (min-width: #{$bp-xl}) {
-    @content;
-  }
-}
-
-@mixin xl2 {
-  @media (min-width: #{$bp-2xl}) {
-    @content;
-  }
-}
-
 @mixin shadow {
   box-shadow: 1px 0px 10px 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
@@ -45,15 +7,6 @@
   box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.4);
 }
 
-@mixin visibility {
-  visibility: hidden;
-  opacity: 0;
-  &.active {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
 @mixin removeScroll {
   -ms-overflow-style: none;
   &::-webkit-scrollbar {
@@ -61,20 +14,20 @@
   }
 }
 
-@mixin DisableUserSelect {
+@mixin noUserSelect {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-@mixin SetMiddlePosition {
+@mixin midPos {
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-@mixin TextEllipsis($length) {
+@mixin textEllipsis($length) {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -84,19 +37,12 @@
     -webkit-box-orient: vertical;
     white-space: unset;
   }
-  &.full-text {
-    overflow: unset;
-    white-space: unset;
-    @supports (-webkit-line-clamp: 1) {
-      -webkit-line-clamp: unset;
-    }
-  }
-  @include max-w-md {
-    overflow: unset;
-    text-overflow: unset;
-    white-space: unset;
-    @supports (-webkit-line-clamp: 1) {
-      -webkit-line-clamp: unset;
-    }
-  }
+  // @include max-w-md {
+  //   overflow: unset;
+  //   text-overflow: unset;
+  //   white-space: unset;
+  //   @supports (-webkit-line-clamp: 1) {
+  //     -webkit-line-clamp: unset;
+  //   }
+  // }
 }

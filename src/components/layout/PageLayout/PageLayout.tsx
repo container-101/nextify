@@ -1,19 +1,14 @@
-import React, { FC } from 'react'
-import classNames from 'classnames'
-import styles from './PageLayout.module.scss'
-import Footer from './Footer/Footer'
+import React, { FC, useMemo } from 'react'
+import Footer from './Footer'
 import Header from './Header/Header'
-import PageTransition from './PageTransition/PageTransition'
-import BottomNavigation from './BottomNavigation/BottomNavigation'
+import PageTransition from './PageTransition'
+import BottomNavigation from './BottomNavigation'
+import classNames from 'classnames'
+import MobileNav from './MobileNav'
 
 interface Props {
   fullWidth?: boolean
   fixedHeight?: boolean
-  hideMobileHeader?: boolean
-  removeFooter?: boolean
-  backwardURL?: string
-  backwardEnabled?: boolean
-  primaryHeader?: boolean
   disableTransition?: boolean
 }
 
@@ -21,30 +16,27 @@ const PageLayout: FC<Props> = ({
   children,
   fullWidth = false,
   fixedHeight = false,
-  removeFooter = false,
   disableTransition = false,
 }) => {
+  const maxWidth = useMemo(() => 'px-4', [])
+
   return (
-    <main className={styles.container}>
-      {fixedHeight && (
-        <style jsx global>{`
-          body {
-            overflow: hidden;
-          }
-        `}</style>
-      )}
-      <Header />
-      <div
-        className={classNames(styles.content, {
-          [styles['full-width']]: fullWidth,
-          [styles['fixed-height']]: fixedHeight,
-        })}
+    <div className="h-screen">
+      <Header className={`${maxWidth}`} />
+      <main
+        className={classNames(
+          'flex flex-col h-full pt-16',
+          `${fullWidth ? 'w-full' : maxWidth}`,
+          `${fixedHeight && 'overflow-hidden h-full'}`
+        )}
       >
-        {!disableTransition ? <PageTransition>{children}</PageTransition> : <>{children}</>}
-      </div>
-      {!removeFooter || !fixedHeight || <Footer />}
-      {/* <BottomNavigation /> */}
-    </main>
+        <div className="w-full flex-grow">
+          {!disableTransition ? <PageTransition>{children}</PageTransition> : <>{children}</>}
+        </div>
+      </main>
+      {!fixedHeight && <Footer className={`${maxWidth}`} />}
+      <BottomNavigation />
+    </div>
   )
 }
 

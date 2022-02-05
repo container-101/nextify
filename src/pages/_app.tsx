@@ -5,7 +5,7 @@ import qs from 'qs'
 import type { AppProps } from 'next/app'
 // external module css
 import 'react-toastify/dist/ReactToastify.css'
-import '@styles/main.scss'
+import '@css/tailwind.scss'
 
 import { ToastContainer } from 'react-toastify'
 import { ModalContainer } from '@src/containers'
@@ -13,7 +13,7 @@ import { ModalProvider } from '@src/context/ModalContext'
 import { UserAuthProvider } from '@src/context/UserAuthContext'
 import { Composer } from '@components/common'
 
-axios.defaults.withCredentials = Boolean(process.env.NEXT_PUBLIC_API_WITH_CRED === 'true')
+axios.defaults.withCredentials = true
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL
 axios.defaults.paramsSerializer = (params) => {
   return qs.stringify(params)

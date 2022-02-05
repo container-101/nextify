@@ -1,6 +1,5 @@
 import classNames from 'classnames'
 import React, { FC, ChangeEventHandler, MouseEventHandler } from 'react'
-import styles from './InputBox.module.scss'
 
 interface InputBoxShape {
   type: 'id' | 'email' | 'password'
@@ -26,9 +25,15 @@ const InputBox: FC<InputBoxShape> = ({
   onClick,
 }) => {
   return (
-    <div className={classNames(styles.cnt, { [styles.err]: error })}>
-      <label htmlFor={name}>{label}</label>
+    <div>
+      <label htmlFor={name} className="block m-0 p-0 font-bold">
+        {label}
+      </label>
       <input
+        className={classNames(
+          'w-full h-10 mb-5 bg-transparent border-b-2 outline-none text-black text-base',
+          { ['border-2 text-red-600']: error }
+        )}
         type={type}
         name={name}
         placeholder={placeholder}

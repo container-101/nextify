@@ -11,7 +11,7 @@ module.exports = withBundleAnalyzer({
     includePaths: [path.join(__dirname, './src/styles')],
   },
   images: {
-    domains: ['user-images.githubusercontent.com', 'localhost'],
+    domains: ['user-images.githubusercontent.com', `${process.env.BASE_URL}`],
   },
   webpack(config) {
     const prod = process.env.NODE_ENV === 'production'
