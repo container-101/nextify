@@ -1,10 +1,9 @@
 import React, { FC, useMemo } from 'react'
 import Footer from './Footer'
-import Header from './Header/Header'
+import Header from './Header'
 import PageTransition from './PageTransition'
 import BottomNavigation from './BottomNavigation'
 import classNames from 'classnames'
-import MobileNav from './MobileNav'
 
 interface Props {
   fullWidth?: boolean
@@ -25,9 +24,9 @@ const PageLayout: FC<Props> = ({
       <Header className={`${maxWidth}`} />
       <main
         className={classNames(
-          'flex flex-col h-full pt-16',
-          `${fullWidth ? 'w-full' : maxWidth}`,
-          `${fixedHeight && 'overflow-hidden h-full'}`
+          'z-30 flex flex-col h-screen m-auto pt-16',
+          `${fullWidth ? 'w-full' : 'max-w-screen-2xl'}`,
+          `${fixedHeight && 'overflow-hidden'}`
         )}
       >
         <div className="w-full flex-grow">

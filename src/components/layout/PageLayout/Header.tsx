@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
 import { LinkWithLogo } from '@components/common'
 import { useCycle } from 'framer-motion'
-import { PopupLayout } from '../..'
-import MobileNav from '../MobileNav'
+import { PopupLayout } from '..'
+import MobileNav from './MobileNav'
 
 const HeaderPopup = ({ children, isOpen, onToggle }) => {
   return (
@@ -24,11 +24,9 @@ const Header = ({ className }) => {
 
   return (
     <header
-      className={`z-100 flex fixed w-full top-0 justify-between ${className} py-3 bg-primary lg:px-20`}
+      className={`z-40 flex fixed w-full top-0 justify-between ${className} py-3 bg-primary-500 lg:px-20 lg:py-2.5`}
     >
-      <div className="md:flex">
-        <LinkWithLogo path="/" logoSrc="/logo.svg" alt="logo" width={40} height={40} />
-      </div>
+      <LinkWithLogo priority path="/" logoSrc="/logo.svg" alt="logo" width={40} height={40} />
       <MobileNav />
     </header>
   )

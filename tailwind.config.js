@@ -4,14 +4,20 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/containers/**/*.{js,ts,jsx,tsx}',
   ],
+  darkMode: 'class',
   theme: {
     fontFamily: {
       sans: ['Roboto', 'Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
+    // colors: {},
     extend: {
       colors: {
-        primary: '#ffcc71',
+        primary: {
+          300: '#ffd284',
+          500: '#ffcc71',
+          700: '#feb638',
+        },
         secondary: '#00b1d2',
         main: '#718096',
         background: '#fff',

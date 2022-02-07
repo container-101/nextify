@@ -1,8 +1,9 @@
 import { GPSLocationShape } from '@interface/map-shape'
 import { useCallback, useEffect, useState } from 'react'
+import { geolocationOptions } from '@utils/geolocation'
 
-const useGPSLocation = (options: PositionOptions) => {
-  const [location, setGPSLocation] = useState<GPSLocationShape>({
+const useGPSLocation = (options: PositionOptions = geolocationOptions) => {
+  const [location, setLocation] = useState<GPSLocationShape>({
     latitude: 37.5053846,
     longitude: 126.9565713,
   })
@@ -10,14 +11,14 @@ const useGPSLocation = (options: PositionOptions) => {
 
   const handleSuccess: PositionCallback = useCallback((pos) => {
     const { latitude, longitude } = pos.coords
-    setGPSLocation({ latitude, longitude })
+    setLocation({ latitude, longitude })
   }, [])
 
   const handleError: PositionErrorCallback = useCallback((e) => {
     setError(e.message)
   }, [])
 
-  useEffect(() => {
+  const updateLocation = useCallback(() => {
     const { geolocation } = navigator
     if (!geolocation) {
       setError('Geolocation is not supported.')
@@ -25,6 +26,10 @@ const useGPSLocation = (options: PositionOptions) => {
     }
     geolocation.getCurrentPosition(handleSuccess, handleError, options)
   }, [handleError, handleSuccess, options])
+
+  useEffect(() => {
+    updateLocation()
+  }, [handleError, handleSuccess, options, updateLocation])
 
   return { location, error }
 }

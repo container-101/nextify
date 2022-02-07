@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { memo, ReactNode } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 function PageTransition({ children }: { children: ReactNode }) {
@@ -22,4 +22,4 @@ function PageTransition({ children }: { children: ReactNode }) {
   )
 }
 
-export default PageTransition
+export default memo(PageTransition)
