@@ -7,7 +7,6 @@ import { Button } from '.'
 // Should use Layout:fixedHeight if you want to show full screen map
 //
 const Map = () => {
-  const google = useRef(null)
   const googlemap = useRef<HTMLDivElement>(null)
   const { location } = useGPSLocation()
 
@@ -17,14 +16,15 @@ const Map = () => {
       version: 'weekly',
     })
     loader.load().then(() => {
-      google.current = window.google
-      new google.current.maps.Map(googlemap.current, {
+      const google = window.google
+      new google.maps.Map(googlemap.current, {
         center: { lat: location.latitude, lng: location.longitude },
         zoom: 14,
         fullscreenControl: false,
         mapTypeControl: false,
         streetViewControl: false,
         zoomControl: false,
+        gestureHandling: 'greedy',
       })
     })
   }, [])
