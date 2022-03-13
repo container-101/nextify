@@ -41,7 +41,7 @@ const SignUpModal = () => {
         onChange={handleOnChange}
       />
       <InputBox
-        type="email"
+        type="password"
         name="password"
         label="Password"
         placeholder="패스워드"
