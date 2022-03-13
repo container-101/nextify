@@ -12,6 +12,8 @@ module.exports = withBundleAnalyzer({
   },
   images: {
     domains: ['user-images.githubusercontent.com', `${process.env.BASE_URL}`],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [],
   },
   webpack(config) {
     const prod = process.env.NODE_ENV === 'production'

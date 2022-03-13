@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from '@components/common'
+import { Icon, Link } from '@components/common'
 import headerNavLinks from '@data/headerNavLinks'
 import { motion } from 'framer-motion'
 import Path from '@src/components/common/SVG/Path'
@@ -24,8 +24,6 @@ const SideMenuItem = ({ link, onToggleNav }) => {
           },
         },
       }}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
     >
       <Link
         href={link.href}
@@ -54,14 +52,12 @@ const MobileNav = () => {
   }
 
   return (
-    <div className="lg:hidden">
+    <div className="flex items-center md:hidden">
       <motion.button
         initial={false}
         animate={navShow ? 'open' : 'close'}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
         type="button"
-        className="ml-1 mr-1 w-6 rounded py-2.5"
+        className="w-6"
         aria-label="Toggle Menu"
         onClick={onToggleNav}
       >
@@ -94,7 +90,7 @@ const MobileNav = () => {
         </svg>
       </motion.button>
       <div
-        className={`fixed top-16 right-0 z-10 h-full w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800 ${
+        className={`fixed top-10 right-0 z-10 h-full w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800 ${
           navShow ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

@@ -1,4 +1,5 @@
 module.exports = {
+  mod: 'jit',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
@@ -10,14 +11,25 @@ module.exports = {
       sans: ['Roboto', 'Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
-    // colors: {},
     extend: {
+      maxWidth: {
+        appMaxWidth: 'var(--app-max-width)',
+      },
+      height: {
+        appHeight: 'var(--app-height)',
+        appheaderHeight: 'var(--app-header-height)',
+      },
+      minHeight: {
+        appHeight: 'var(--app-height)',
+      },
+      padding: {
+        appheaderHeight: 'var(--app-header-height)',
+      },
+      margin: {
+        appheaderHeight: 'var(--app-header-height)',
+      },
       colors: {
-        primary: {
-          300: '#ffd284',
-          500: '#ffcc71',
-          700: '#feb638',
-        },
+        primary: 'var(--primary-color)',
         secondary: '#00b1d2',
         main: '#718096',
         background: '#fff',

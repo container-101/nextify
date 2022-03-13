@@ -18,7 +18,7 @@ export default function FourZeroFour() {
             But dont worry, you can find plenty of other things on our homepage.
           </p>
           <Link href="/">
-            <button className="focus:shadow-outline-blue inline rounded-lg border border-transparent bg-primary-500 px-4 py-2 text-sm font-medium leading-5 text-white shadow transition-colors duration-150 hover:bg-primary-700 focus:outline-none dark:bg-orange-300">
+            <button className="focus:shadow-outline-blue inline rounded-lg border border-transparent bg-primary px-4 py-2 text-sm font-medium leading-5 text-white shadow transition-colors duration-150 hover:bg-primary focus:outline-none dark:bg-orange-300">
               Back to homepage
             </button>
           </Link>

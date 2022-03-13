@@ -7,7 +7,7 @@ const Path = (
     React.RefAttributes<SVGPathElement>
 ) => (
   <motion.path
-    // fill="transparent"
+    fill="transparent"
     strokeWidth="3"
     stroke="hsl(0, 0%, 18%)"
     strokeLinecap="round"

@@ -1,30 +1,12 @@
-import React, { useMemo } from 'react'
+import React, { forwardRef, MutableRefObject } from 'react'
 import { LinkWithLogo } from '@components/common'
-import { useCycle } from 'framer-motion'
-import { PopupLayout } from '..'
 import MobileNav from './MobileNav'
 
-const HeaderPopup = ({ children, isOpen, onToggle }) => {
-  return (
-    <PopupLayout className="top-12" isOpen={isOpen} onToggle={onToggle}>
-      {children}
-    </PopupLayout>
-  )
-}
-
-const Header = ({ className }) => {
-  const [isOpen, toggleOpen] = useCycle(false, true)
-
-  const HeaderContent = useMemo(() => {
-    const HeaderContentMemo = () => {
-      return <div>abc</div>
-    }
-    return HeaderContentMemo
-  }, [])
-
+const Header = (props, ref: MutableRefObject<HTMLDivElement>) => {
   return (
     <header
-      className={`z-40 flex fixed w-full top-0 justify-between ${className} py-3 bg-primary-500 lg:px-20 lg:py-2.5`}
+      ref={ref}
+      className={`z-10 fixed flex w-full top-0 justify-between bg-primary px-3 py-1`}
     >
       <LinkWithLogo priority path="/" logoSrc="/logo.svg" alt="logo" width={40} height={40} />
       <MobileNav />
@@ -32,4 +14,4 @@ const Header = ({ className }) => {
   )
 }
 
-export default Header
+export default forwardRef<HTMLDivElement>(Header)

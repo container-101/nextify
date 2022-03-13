@@ -1,9 +1,10 @@
-import React, { FC, useMemo } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import Footer from './Footer'
 import Header from './Header'
 import PageTransition from './PageTransition'
 import BottomNavigation from './BottomNavigation'
 import classNames from 'classnames'
+import useWindowSize from '@src/hooks/useWindowSize'
 
 interface Props {
   fullWidth?: boolean
@@ -17,24 +18,41 @@ const PageLayout: FC<Props> = ({
   fixedHeight = false,
   disableTransition = false,
 }) => {
-  const maxWidth = useMemo(() => 'px-4', [])
+  const headerRef = useRef<HTMLDivElement>(null)
+  // change app height when window size changes
+  useWindowSize(500, () => {
+    if (!headerRef.current) return
+    const headerHeight = headerRef ? getComputedStyle(headerRef.current).height : '0px'
+    document.documentElement.style.setProperty(
+      '--app-height',
+      `${window.innerHeight - parseInt(headerHeight, 10)}px`
+    )
+  })
+
+  // assign app header heigh
+  useEffect(() => {
+    const headerHeight = headerRef ? getComputedStyle(headerRef.current).height : '0px'
+    document.documentElement.style.setProperty('--app-header-height', headerHeight)
+    document.documentElement.style.setProperty(
+      '--app-height',
+      `${window.innerHeight - parseInt(headerHeight, 10)}px`
+    )
+  }, [])
 
   return (
-    <div className="h-screen">
-      <Header className={`${maxWidth}`} />
+    <div id="page-layout">
+      <Header ref={headerRef} />
       <main
         className={classNames(
-          'z-30 flex flex-col h-screen m-auto pt-16',
-          `${fullWidth ? 'w-full' : 'max-w-screen-2xl'}`,
+          'z-0 flex flex-col w-full min-h-appHeight mt-appheaderHeight mx-auto',
+          `${!fullWidth && 'max-w-appMaxWidth'}`,
           `${fixedHeight && 'overflow-hidden'}`
         )}
       >
-        <div className="w-full flex-grow">
-          {!disableTransition ? <PageTransition>{children}</PageTransition> : <>{children}</>}
-        </div>
+        {!disableTransition ? <PageTransition>{children}</PageTransition> : <>{children}</>}
       </main>
-      {!fixedHeight && <Footer className={`${maxWidth}`} />}
-      <BottomNavigation />
+      {!fixedHeight && <Footer />}
+      {/* <BottomNavigation /> */}
     </div>
   )
 }

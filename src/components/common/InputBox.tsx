@@ -32,7 +32,7 @@ const InputBox: FC<InputBoxShape> = ({
       <input
         className={classNames(
           'w-full h-10 mb-5 bg-transparent border-b-2 outline-none text-black text-base',
-          { ['border-2 text-red-600']: error }
+          { 'border-b-red-500': error }
         )}
         type={type}
         name={name}
