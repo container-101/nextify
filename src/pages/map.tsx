@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import { PageLayout } from '@components/layout'
-import { Map } from '@components/common'
+import { GoogleMaps } from '@components/common'
 
 const MapPage: FC = () => {
   return (
     <PageLayout fullWidth fixedHeight>
-      <div className="h-screen">
-        <Map />
+      <div className="h-appHeight">
+        <GoogleMaps />
       </div>
     </PageLayout>
   )

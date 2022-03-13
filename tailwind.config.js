@@ -28,6 +28,9 @@ module.exports = {
       margin: {
         appheaderHeight: 'var(--app-header-height)',
       },
+      spacing: {
+        appheaderHeight: 'var(--app-header-height)',
+      },
       colors: {
         primary: 'var(--primary-color)',
         secondary: '#00b1d2',

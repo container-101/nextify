@@ -90,7 +90,7 @@ const MobileNav = () => {
         </svg>
       </motion.button>
       <div
-        className={`fixed top-10 right-0 z-10 h-full w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800 ${
+        className={`fixed top-appheaderHeight right-0 z-10 h-full w-full bg-gray-200 opacity-95 transform duration-300 ease-in-out dark:bg-gray-800 ${
           navShow ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
