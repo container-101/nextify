@@ -3,13 +3,13 @@ import React, { FC } from 'react'
 import { Image } from '@components/common'
 import styles from './ModalBase.module.scss'
 
-interface IModalBase {
+interface ModalBaseShape {
   show: boolean
   title?: string
   onClose: () => void
 }
 
-const ModalBase: FC<IModalBase> = ({
+const ModalBase: FC<ModalBaseShape> = ({
   show,
   title = process.env.NEXT_PUBLIC_APP_TITLE,
   onClose,

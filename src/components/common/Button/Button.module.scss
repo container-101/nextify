@@ -7,7 +7,6 @@
   border-radius: 3px;
   font-size: 14px;
   line-height: 16px;
-  // background: $base-color;
   &.fullWidth {
     width: 100%;
   }
@@ -25,6 +24,7 @@
 }
 
 .large {
+  width: 20rem;
   padding: 9px 12px;
   font-size: 16px;
   line-height: 24px;
@@ -34,6 +34,7 @@
 }
 
 .medium {
+  width: 16rem;
   padding: 5px 12px;
   font-size: 13px;
   line-height: 20px;
@@ -43,6 +44,7 @@
 }
 
 .small {
+  width: 12rem;
   padding: 4px 12px;
   font-size: 12px;
   line-height: 18px;
@@ -53,6 +55,7 @@
 }
 
 .extra-small {
+  width: 8rem;
   padding: 1px 12px;
   font-size: 12px;
   line-height: 18px;
@@ -110,11 +113,7 @@
 }
 
 .primary {
-  color: #fff;
-  background-color: #0096cc;
-  background-image: linear-gradient(to bottom, #00a7e6 0%, #0096cc 100%);
-  background-repeat: repeat-x;
-  border-color: #0095ce;
+  background-color: var(--primary-color);
 
   // Loading class within a primary button
   > [class*='loader-container'] > [class*='loader'] {
@@ -141,10 +140,7 @@
   &:hover,
   &.hover {
     color: #fff;
-    background-color: #1daee5;
-    background-image: linear-gradient(to bottom, #1daee5 0%, #00a3df 100%);
-    background-repeat: repeat-x;
-    border-color: #00759f;
+    background-color: var(--primary-color);
   }
 
   &.disabled,

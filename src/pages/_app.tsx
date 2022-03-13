@@ -16,6 +16,7 @@ import { UserAuthProvider } from '@src/context/UserAuthContext'
 import { Composer } from '@components/common'
 import { ThemeProvider } from 'next-themes'
 import NextNprogress from 'nextjs-progressbar'
+import { AnimatePresence } from 'framer-motion'
 
 axios.defaults.withCredentials = process.env.NODE_ENV === 'production'
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL
@@ -23,7 +24,7 @@ axios.defaults.paramsSerializer = (params) => {
   return qs.stringify(params)
 }
 
-export default function App({ Component, pageProps }: AppProps): JSX.Element {
+export default function App({ Component, pageProps, router }: AppProps): JSX.Element {
   return (
     <>
       <Head>
@@ -36,7 +37,13 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       </Head>
       <ThemeProvider defaultTheme="system" attribute="class">
         <Composer components={[UserAuthProvider, ModalProvider]}>
-          <Component {...pageProps} />
+          <AnimatePresence
+            exitBeforeEnter
+            initial={false}
+            onExitComplete={() => window.scrollTo(0, 0)}
+          >
+            <Component {...pageProps} key={router.route} />
+          </AnimatePresence>
           <ModalContainer />
           <ToastContainer />
           <NextNprogress />
