@@ -47,10 +47,10 @@ const PageLayout: FC<Props> = ({
       <Header ref={headerRef} fixed={headerFixed} transparent={headerTransparent} />
       <main
         className={classNames(
-          'z-0 flex flex-col w-full min-h-appHeight mx-auto',
+          'z-0 flex flex-col w-full min-h-screen mx-auto',
           `${headerFixed && 'mt-appheaderHeight'}`,
           `${!fullWidth && 'max-w-appMaxWidth'}`,
-          `${fixedHeight && 'overflow-hidden'}`
+          `${fixedHeight && 'overflow-hidden min-h-appheight'}`
         )}
       >
         {!disableTransition ? <PageTransition>{children}</PageTransition> : <>{children}</>}

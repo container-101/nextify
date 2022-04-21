@@ -39,7 +39,7 @@ const TestPage = () => {
           </Button>
         </div>
         {/* Example for Carousel */}
-        <div className="w-full h-[300px]">
+        <div className="sm:w-[600px] w-full h-[300px]">
           <Carousel>
             {images.map((image, index) => {
               return (
