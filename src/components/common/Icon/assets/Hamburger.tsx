@@ -1,14 +1,21 @@
-import { motion } from 'framer-motion'
-import React from 'react'
+import classnames from 'classnames'
+import { useTheme } from 'next-themes'
+import { FC } from 'react'
 import Path from '../../SVG/Path'
+import Svg from '../../SVG/Svg'
 
-const HamburgerSVG = () => {
+const HamburgerSVG: FC<{
+  className?: string
+  width?: number
+  height?: number
+}> = ({ className, ...props }) => {
+  const { theme } = useTheme()
+
   return (
-    <motion.svg
-      xmlns="http://www.w3.org/2000/svg"
+    <Svg
       viewBox="0 0 20 20"
-      fill="currentColor"
-      className="text-gray-900 dark:text-gray-100"
+      {...props}
+      className={classnames('text-gray-900 dark:text-gray-100', className)}
     >
       <Path
         variants={{
@@ -30,7 +37,7 @@ const HamburgerSVG = () => {
           open: { d: 'M 3 2.5 L 17 16.346' },
         }}
       />
-    </motion.svg>
+    </Svg>
   )
 }
 

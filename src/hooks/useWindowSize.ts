@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { IWindowSize } from '@src/core/interface'
+import { IWindowSize } from '@src/interface'
 import { throttle } from 'lodash-es'
 
 const useWindowSize = (delay: number = 0, callback?: () => void): IWindowSize => {

@@ -1,4 +1,4 @@
-import { GPSLocationShape } from '@interface/map-shape'
+import { GPSLocationShape } from '@src/interface/map-shape'
 import { useCallback, useEffect, useState } from 'react'
 import { geolocationOptions } from '@utils/geolocation'
 

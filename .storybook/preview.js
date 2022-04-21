@@ -1,4 +1,4 @@
-import '../src/styles/globals.scss'
+import '../src/styles/globals.css'
 import * as NextImage from 'next/image'
 
 const OriginalNextImage = NextImage.default
@@ -15,5 +15,8 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  previewTabs: {
+    'storybook/docs/panel': { index: -1 },
   },
 }

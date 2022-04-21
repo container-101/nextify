@@ -17,15 +17,16 @@
     "baseUrl": ".",
     "paths": {
       "@src/*": ["./src/*"],
+      "@animations/*": ["./src/animations/*"],
       "@containers/*": ["./src/containers/*"],
       "@components/*": ["./src/components/*"],
-      "@context/*": ["./src/context"],
-      "@api/*": ["./src/core/api/*"],
-      "@data/*": ["./src/core/data/*"],
-      "@interface/*": ["./src/core/interface/*"],
+      "@store/*": ["./src/store"],
+      "@api/*": ["./src/api/*"],
+      "@data/*": ["./data/*"],
+      "@interface/*": ["./src/interface/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@pages/*": ["./src/pagaes/*"],
-      "@css/*": ["./src/css/*"],
+      "@styles/*": ["./src/styles/*"],
       "@utils/*": ["./src/utils/*"]
     }
   },

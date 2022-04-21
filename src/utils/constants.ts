@@ -1,4 +1,11 @@
 // for button component
-export type btnSizes = 'large' | 'medium' | 'small' | 'extra-small'
+export type btnSizes = 'large' | 'medium' | 'small' | 'xsmall'
 
-export type btnStyles = 'default' | 'primary' | 'secondary' | 'danger' | 'link' | 'border'
+export type btnStyles =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'link'
+  | 'danger'
+  | 'success'
+  | 'warning'

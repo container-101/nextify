@@ -1,25 +1,24 @@
 import React, { FC } from 'react'
 import { PageLayout } from '@components/layout'
-import { Button } from '@src/components/common'
-import { useSignInModal, useSignUpModal } from '@src/context/ModalContext'
+import { Image } from '@src/components/common'
+import { PageSEO } from '@src/components/common/SEO'
+import siteMetadata from '@data/siteMetadata'
 
-const HomePage: FC = () => {
-  const openSignUpModal = useSignUpModal()
-  const openSignInModal = useSignInModal()
-
+const LandingPage: FC = () => {
   return (
-    <PageLayout disableTransition>
-      <h1>Home Example</h1>
-      <div className="flex flex-col space-y-10">
-        <Button btnSize="small" onClick={() => openSignUpModal()}>
-          Open SignUp Modal
-        </Button>
-        <Button btnSize="small" onClick={() => openSignInModal()}>
-          Open SignIn Modal
-        </Button>
+    <PageLayout>
+      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <div className="absolute top-0 left-0 w-full h-96 bg-primary md:h-3/5">
+        <Image
+          loading="eager"
+          src="/static/banner.jpeg"
+          layout="fill"
+          objectFit="cover"
+          alt="main_banner"
+        />
       </div>
     </PageLayout>
   )
 }
 
-export default HomePage
+export default LandingPage

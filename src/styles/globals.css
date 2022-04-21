@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --app-height: 100vh;
+  --app-header-height: 0px;
+  --app-max-width: 1400px;
+  --primary-color: rgb(51, 65, 85);
+  --secondary-color: #536390;
+}
+
+[data-theme='dark'] {
+  --primary-color: rgb(51, 65, 85);
+  --secondary-color: #818cab;
+}
+
+html * {
+  font-size: 16px;
+  box-sizing: border-box;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+html * ::-webkit-scrollbar {
+  display: none;
+}
+
+[type='email']::focus {
+  border: none;
+  outline: none;
+}
+
+*,
+*:before,
+*:after {
+  color: inherit;
+  box-sizing: inherit;
+}

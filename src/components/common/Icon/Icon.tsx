@@ -1,28 +1,29 @@
-import { motion, MotionProps } from 'framer-motion'
-import React, { FC } from 'react'
+import React, { FC, useMemo } from 'react'
 import HamburgerSVG from './assets/Hamburger'
+import LogoSVG from './assets/Logo'
 import SettingSVG from './assets/Setting'
 
-export type SVGTypes = 'hamburger' | 'settings'
+export type SVGTypes = 'hamburger' | 'settings' | 'logo'
 
-interface Props extends MotionProps {
+type IconProps = {
   name: SVGTypes
-  type?: 'button' | 'submit' | 'reset'
   className?: string
-  onClick?: () => void
+  width?: number
+  height?: number
 }
 
-const Icon: FC<Props> = ({ name, type = 'button', className, onClick, ...props }) => {
-  const IconSelector: { [keys in SVGTypes]: JSX.Element } = {
-    hamburger: <HamburgerSVG />,
-    settings: <SettingSVG />,
-  }
+const Icon: FC<IconProps> = ({ name, ...props }) => {
+  const IconWrapper = useMemo(() => {
+    const _IconSelector: { [keys in SVGTypes]: JSX.Element } = {
+      hamburger: <HamburgerSVG {...props} />,
+      settings: <SettingSVG {...props} />,
+      logo: <LogoSVG {...props} />,
+    }
 
-  return (
-    <motion.button className={className} type={type} onClick={onClick} {...props}>
-      {IconSelector[name]}
-    </motion.button>
-  )
+    return _IconSelector[name]
+  }, [name, props])
+
+  return <>{IconWrapper}</>
 }
 
 export default Icon

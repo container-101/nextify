@@ -16,6 +16,6 @@ app.prepare().then(() => {
   })
 
   server.listen(port, () => {
-    console.log(`> Ready on ${process.env.PORT}`)
+    console.log(`> Ready on ${port}`)
   })
 })

@@ -1,24 +1,30 @@
 import React, { FC } from 'react'
 import ModalPortal from './ModalPortal'
-import { ModalShape } from '@interface/modal-type'
-import { SignInModal, SignUpModal } from '@components/modal'
 import ModalBase from './ModalBase'
-import { useCloseModal, useModalInfo, useModalTitle } from '@src/context/ModalContext'
+import { SignInModal, SignUpModal } from './Content'
+import { ModalType } from '@src/interface/modal-type'
+import { useRootDispatch, useRootState } from '@src/hooks/useRootState'
+import { close } from '@src/store/modules/modal'
+
+const selectRenderingModal: { [keys in ModalType]: JSX.Element } = {
+  SIGNUP: <SignUpModal />,
+  SIGNIN: <SignInModal />,
+}
 
 const ModalContainer: FC = () => {
-  const modalInfo = useModalInfo()
-  const modalTitle = useModalTitle()
-  const closeModal = useCloseModal()
-
-  const SelectRenderingModal: { [keys in ModalShape]: JSX.Element } = {
-    SIGNUP: <SignUpModal />,
-    SIGNIN: <SignInModal />,
-  }
+  const modal = useRootState((state) => state.modal)
+  const dispatch = useRootDispatch()
 
   return (
     <ModalPortal>
-      <ModalBase title={modalTitle} show={modalInfo ? true : false} onClose={closeModal}>
-        {modalInfo ? SelectRenderingModal[modalInfo] : null}
+      <ModalBase
+        title={modal.title}
+        show={modal.name ? true : false}
+        onClose={() => {
+          dispatch(close())
+        }}
+      >
+        {modal.name && selectRenderingModal[modal.name]}
       </ModalBase>
     </ModalPortal>
   )

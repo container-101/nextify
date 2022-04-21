@@ -11,7 +11,11 @@ module.exports = withBundleAnalyzer({
     includePaths: [path.join(__dirname, './src/styles')],
   },
   images: {
-    domains: ['user-images.githubusercontent.com', `${process.env.BASE_URL}`],
+    domains: [
+      'user-images.githubusercontent.com',
+      `${process.env.BASE_URL}`,
+      'd33wubrfki0l68.cloudfront.net',
+    ],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [],
   },

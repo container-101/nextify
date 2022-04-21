@@ -1,3 +1,7 @@
+export const Capitalize = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 export const formatPhoneNumber = (number: string): string => {
   const trimmed = number.replace(/\D/g, '')
   if (trimmed.length >= 10) {

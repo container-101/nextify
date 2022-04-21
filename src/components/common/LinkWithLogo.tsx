@@ -22,10 +22,10 @@ const LinkWithLogo: FC<LinkWithLogoShape> = ({
   return (
     <motion.div
       className="flex justify-center align-center"
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      <Link href={path} className={`w-${width / 4} h-${height / 4}`}>
+      <Link href={path}>
         <Image
           className="cursor-pointer"
           priority={priority}

@@ -1,7 +1,7 @@
-import classNames from 'classnames'
 import React, { FC } from 'react'
-import { Image } from '@components/common'
-import styles from './ModalBase.module.scss'
+import { Icon, Image } from '@components/common'
+import { AnimatePresence, motion } from 'framer-motion'
+import { modalOverlayVariants, modalVariants } from '@src/animations/modal'
 
 interface ModalBaseShape {
   show: boolean
@@ -16,21 +16,34 @@ const ModalBase: FC<ModalBaseShape> = ({
   children,
 }) => {
   return (
-    <div className={classNames(styles.cnt, { [styles.active]: show })}>
-      <div
-        className={styles.overlay}
-        onClick={() => {
-          onClose()
-        }}
-      />
-      <div className={classNames(styles.con)}>
-        <div className={styles.logo_image}>
-          <Image src="/logo.ico" width={100} height={100} alt="logo" />
-        </div>
-        <h1 className={styles.title}>{title}</h1>
-        <div className={styles.contents}>{children}</div>
-      </div>
-    </div>
+    <AnimatePresence exitBeforeEnter>
+      {show && (
+        <motion.div
+          className="fixed flex justify-center items-center top-0 left-0 z-[1000] w-full h-full"
+          initial="enter"
+          animate="center"
+          exit="exit"
+        >
+          <motion.div
+            className="absolute top-0 left-0 z-[998] w-full h-full bg-black/50 dark:bg-gray/50"
+            variants={modalOverlayVariants}
+            onClick={() => {
+              onClose()
+            }}
+          />
+          <motion.div
+            className="relative z-[998] max-w-2xl min-w-[30rem] rounded-md p-8 bg-white/70 dark:bg-gray-900"
+            variants={modalVariants}
+          >
+            <div className="absolute -top-12 left-[calc(50%-50px)] rounded-full">
+              <Icon name="logo" width={100} height={100} />
+            </div>
+            <h1 className="text-2xl text-center py-2">{title}</h1>
+            <div className="py-5">{children}</div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
 

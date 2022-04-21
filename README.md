@@ -33,3 +33,9 @@
 2. install prettier plugin at vscode market
 3. install eslint plugin at vscode market
 ```
+
+## To Do
+
+1. Move to RTK
+2. Next Image에 Loading 넣기
+3. Shimmer Effect 넣기

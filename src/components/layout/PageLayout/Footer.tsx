@@ -1,15 +1,18 @@
 import React from 'react'
 import { SocialIcon } from 'react-social-icons'
+import siteMetadata from '@data/siteMetadata'
 
 const Footer = () => {
+  const com = siteMetadata.company
+
   return (
-    <div className="bg-footer">
-      <footer className="pt-12 pb-20 mb:py-20 space-y-10 max-w-appMaxWidth mx-auto bg-footer">
+    <div className="bg-gray-100 dark:bg-gray-700">
+      <footer className="pt-12 pb-20 space-y-10 max-w-appMaxWidth mx-auto px-4 sm:px-8">
         <div className="flex flex-col justify-start space-y-2">
-          <h5>Mircats in Container101</h5>
-          <h5>Contact : mircat.daily@gmail.com</h5>
-          <h5>Chuang-ang Univ. Software Majoring</h5>
-          <h5>© Copyright 2022 by Mircats in Container101. All rights reserved</h5>
+          <h5>{com.name}</h5>
+          <h5>Contact : {com.email}</h5>
+          <h5>{com.address}</h5>
+          <h5>© Copyright 2022 by {com.name}. All rights reserved</h5>
         </div>
         <SocialIcon url="https://github.com/woodi97" />
       </footer>

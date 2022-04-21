@@ -22,7 +22,7 @@ export default class MyDocument extends Document {
           <meta content="#ffcc71" name="apple-mobile-web-app-status-bar-style" />
           <meta content="yes" name="apple-mobile-web-app-capable" />
         </Head>
-        <body>
+        <body className="bg-white text-black antialiased dark:bg-gray-900 dark:text-white">
           <Main />
           <div id="modal" />
           <NextScript />
