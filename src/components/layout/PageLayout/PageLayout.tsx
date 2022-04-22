@@ -47,7 +47,7 @@ const PageLayout: FC<Props> = ({
       <Header ref={headerRef} fixed={headerFixed} transparent={headerTransparent} />
       <main
         className={classNames(
-          'z-0 flex flex-col w-full min-h-screen mx-auto',
+          'z-0 flex flex-col w-full min-h-screen mx-auto h-screen',
           `${headerFixed && 'mt-appheaderHeight'}`,
           `${!fullWidth && 'max-w-appMaxWidth'}`,
           `${fixedHeight && 'overflow-hidden min-h-appheight'}`

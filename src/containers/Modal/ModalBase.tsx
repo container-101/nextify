@@ -32,7 +32,7 @@ const ModalBase: FC<ModalBaseShape> = ({
             }}
           />
           <motion.div
-            className="relative z-[998] w-full sm:max-w-lg sm:min-w-[20rem] rounded-md p-8 bg-white/70 dark:bg-gray-900"
+            className="relative z-[998] w-full sm:max-w-lg sm:min-w-[20rem] rounded-md p-8 bg-gray-300 dark:bg-gray-900"
             variants={modalVariants}
           >
             <div className="absolute -top-12 left-[calc(50%-50px)] rounded-full">

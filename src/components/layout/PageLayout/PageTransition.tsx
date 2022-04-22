@@ -15,6 +15,7 @@ function PageTransition({ children }: { children: ReactNode }) {
       animate="enter"
       exit="exit"
       transition={{ type: 'linear' }}
+      className="h-full"
     >
       {children}
     </motion.div>
