@@ -25,7 +25,7 @@ axios.defaults.paramsSerializer = (params) => {
   return qs.stringify(params)
 }
 
-function App({ Component, pageProps, router }: AppProps): JSX.Element {
+function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
