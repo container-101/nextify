@@ -1,22 +1,27 @@
+/** @type {import('next').NextConfig} */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
-const CompressionPlugin = require("compression-webpack-plugin");
+const compressionPlugin = require("compression-webpack-plugin");
 
-module.exports = withBundleAnalyzer({
+const nextConfig = {
+  reactStrictMode: true,
   compress: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "./src/styles")],
   },
+  env: {
+    APP_TITLE: process.env.APP_TITLE,
+    BASE_API_URL: process.env.BASE_API_URL,
+    JWT_DOMAIN: process.env.JWT_DOMAIN,
+    KAKAO_CLIENT_ID: process.env.KAKAO_CLIENT_ID,
+    KAKAO_REDIRECT_URL: process.env.KAKAO_REDIRECT_URL,
+  },
   images: {
-    domains: [
-      "user-images.githubusercontent.com",
-      `${process.env.BASE_URL}`,
-      "d33wubrfki0l68.cloudfront.net",
-    ],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    domains: ["unsplash.com", "resource.with-you.io"],
+    deviceSizes: [640, 768, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [],
   },
   webpack(config) {
@@ -27,7 +32,7 @@ module.exports = withBundleAnalyzer({
     });
     const plugins = [...config.plugins];
     if (prod) {
-      plugins.push(new CompressionPlugin());
+      plugins.push(new compressionPlugin());
     }
     return {
       ...config,
@@ -35,7 +40,6 @@ module.exports = withBundleAnalyzer({
       plugins: plugins,
     };
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-});
+};
+
+module.exports = withBundleAnalyzer(nextConfig);

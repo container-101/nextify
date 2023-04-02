@@ -1,6 +1,6 @@
 import { btnRoundness, btnSizes, btnStyles } from "@src/constants/atom-components";
 import { twMerge as cx } from "tailwind-merge";
-import { motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
 import React, { forwardRef, ForwardRefRenderFunction } from "react";
 
 export type ButtonProps = {
@@ -30,45 +30,41 @@ const selectSize: { [keys in btnSizes]: string } = {
 };
 
 const selectStyle: { [keys in btnStyles]: string } = {
-  primary: "bg-primary-500 hover:bg-primary-700 focus:bg-primary-900",
-  secondary: "bg-secondary-500 hover:bg-secondary-700 focus:bg-secondary-900",
-  tertiary: "bg-slate-100 hover:bg-slate-200 focus:bg-slate-200",
-  link: "bg-link-500 text-white hover:bg-link-700 hover:text-link-400 focus:text-link-300",
-  danger: "bg-red-700 text-red-100 hover:bg-red-600 focus:bg-red-600",
-  success: "bg-green-700 text-green-100 hover:bg-green-600 focus:bg-green-600",
-  warning: "bg-orange-700 text-orange-100 hover:bg-orange-600 focus:bg-orange-600",
+  primary: "bg-primary-500",
+  secondary: "bg-secondary-500",
+  tertiary: "bg-slate-100",
+  link: "bg-link-500 text-white",
+  danger: "bg-red-700 text-red-100",
+  success: "bg-green-700 text-green-100",
+  warning: "bg-orange-700 text-orange-100",
   transparent: "bg-transparent text-black",
 };
 
-const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
+const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps & MotionProps> = (
   {
-    type = "button",
     size = "medium",
     styles = "primary",
     roundness = "primary",
-    disabled = false,
     fullWidth = false,
     children,
     className,
-    onClick,
+    ...props
   },
   ref
 ) => {
   return (
     <motion.button
       ref={ref}
-      type={type}
-      disabled={disabled}
       className={cx(
-        className,
         selectSize[size],
         selectStyle[styles],
         selectRounded[roundness],
-        "transition-colors bg-slate focus:shadow-outline duration-150",
-        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
-        fullWidth ? "w-full" : ""
+        "transition-colors focus:shadow-outline duration-150",
+        "hover:bg-opacity-80 focus:bg-opacity-80 active:bg-opacity-80",
+        fullWidth ? "w-full" : "",
+        className
       )}
-      onClick={onClick}
+      {...props}
     >
       {children}
     </motion.button>

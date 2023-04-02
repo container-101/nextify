@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import type { AppProps } from "next/app";
-// external module css
 import "@src/styles/globals.css";
 
 import { ThemeProvider } from "next-themes";
