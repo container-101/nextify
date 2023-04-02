@@ -1,17 +1,17 @@
-import React from 'react'
-import { ComponentMeta } from '@storybook/react'
+import React from "react";
+import { ComponentMeta } from "@storybook/react";
 
-import Button from './Button'
-import { btnStyles } from '@src/utils/constants'
+import Button from "./Button";
+import { btnStyles } from "@src/constants/atom-components";
 
 export default {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: { action: 'clicked' },
+    backgroundColor: { control: "color" },
+    onClick: { action: "clicked" },
   },
-} as ComponentMeta<typeof Button>
+} as ComponentMeta<typeof Button>;
 
 const Template = ({ title, styles }: { title: string; styles: btnStyles }) => {
   return (
@@ -19,9 +19,9 @@ const Template = ({ title, styles }: { title: string; styles: btnStyles }) => {
       <h1>{title}</h1>
       <div
         style={{
-          display: 'inline-flex',
-          alignItems: 'flex-end',
-          gap: '1rem',
+          display: "inline-flex",
+          alignItems: "flex-end",
+          gap: "1rem",
         }}
       >
         <Button size="xsmall" styles={styles}>
@@ -36,20 +36,20 @@ const Template = ({ title, styles }: { title: string; styles: btnStyles }) => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const Chunk = () => {
-  const styles = ['primary', 'secondary', 'tertiary', 'link', 'danger', 'success', 'warning']
+  const styles = ["primary", "secondary", "tertiary", "link", "danger", "success", "warning"];
 
   return (
     <div className="flex flex-col gap-2">
       {styles.map((style, idx) => {
-        return <Template key={`btn-template-${idx}`} title={style} styles={style as btnStyles} />
+        return <Template key={`btn-template-${idx}`} title={style} styles={style as btnStyles} />;
       })}
     </div>
-  )
-}
+  );
+};
 
 export const FullWidth = () => {
   return (
@@ -61,5 +61,5 @@ export const FullWidth = () => {
         <Button fullWidth>Fullwidth</Button>
       </div>
     </div>
-  )
-}
+  );
+};

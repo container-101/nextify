@@ -1,18 +1,18 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from "react";
 
 interface VideoTagShape {
-  muted?: boolean
-  mediaStream: MediaStream
-  profileImageUrl?: string
+  muted?: boolean;
+  mediaStream: MediaStream;
+  profileImageUrl?: string;
 }
 
 const Video = ({ muted, mediaStream, profileImageUrl }: VideoTagShape) => {
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (!videoRef.current) return
-    videoRef.current.srcObject = mediaStream ?? null
-  }, [mediaStream])
+    if (!videoRef.current) return;
+    videoRef.current.srcObject = mediaStream ?? null;
+  }, [mediaStream]);
 
   return (
     <video
@@ -20,9 +20,9 @@ const Video = ({ muted, mediaStream, profileImageUrl }: VideoTagShape) => {
       autoPlay
       playsInline
       muted={muted}
-      poster={profileImageUrl ?? '/profiles/default.png'}
+      poster={profileImageUrl ?? "/profiles/default.png"}
     />
-  )
-}
+  );
+};
 
-export default Video
+export default Video;

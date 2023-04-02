@@ -1,9 +1,11 @@
-import React from 'react'
-import Document, { Head, Html, Main, NextScript } from 'next/document'
-import { appColor } from '@src/utils/constants'
+import React from "react";
+import Document, { Head, Html, Main, NextScript } from "next/document";
+import { notchColor } from "@src/core/config/style/color";
 
 export default class MyDocument extends Document {
   render() {
+    const { light } = notchColor;
+
     return (
       <Html>
         <Head>
@@ -16,11 +18,11 @@ export default class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
           {/* <!-- Chrome, Firefox, Opera --> */}
-          <meta content={appColor} name="theme-color" />
+          <meta content={light} name="theme-color" />
           {/* <!-- Windows Phone --> */}
-          <meta content={appColor} name="msapplication-navbutton-color" />
+          <meta content={light} name="msapplication-navbutton-color" />
           {/* <!-- iOS Safari --> */}
-          <meta content={appColor} name="apple-mobile-web-app-status-bar-style" />
+          <meta content={light} name="apple-mobile-web-app-status-bar-style" />
           <meta content="yes" name="apple-mobile-web-app-capable" />
         </Head>
         <body className="bg-white text-black antialiased dark:bg-gray-900 dark:text-white">
@@ -29,6 +31,6 @@ export default class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }

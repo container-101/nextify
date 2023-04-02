@@ -1,4 +1,4 @@
-import type { Variants } from 'framer-motion'
+import type { Variants } from "framer-motion";
 
 export const themeVariants: Variants = {
   hidden: { rotate: -90, originX: 0.6, originY: 0.6, opacity: 0 },
@@ -14,4 +14,4 @@ export const themeVariants: Variants = {
     opacity: 0,
     transition: { duration: 0.5 },
   },
-}
+};

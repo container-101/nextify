@@ -32,10 +32,12 @@
 1. vscode 설치
 2. install prettier plugin at vscode market
 3. install eslint plugin at vscode market
+4. If you want to comment on code, please use(for example)
+/**
+ * @param {boolean} bgFilter - If true, the image will be displayed with a background filter
+ */
 ```
 
-## To Do
+## Tip
 
-1. Move to RTK
-2. Next Image에 Loading 넣기
-3. Shimmer Effect 넣기
+1. https://picsum.photos/500/300?random=${index} -> random image url

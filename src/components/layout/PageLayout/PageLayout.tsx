@@ -1,64 +1,33 @@
-import React, { FC, useEffect, useRef } from 'react'
-import Footer from './Footer'
-import Header from './Header'
-import PageTransition from './PageTransition'
-import BottomNavigation from './BottomNavigation'
-import classNames from 'classnames'
-import useWindowSize from '@src/hooks/useWindowSize'
+import React, { FunctionComponent } from "react";
+import classNames from "classnames";
+
 interface Props {
-  fullWidth?: boolean
-  fixedHeight?: boolean
-  disableTransition?: boolean
-  headerTransparent?: boolean
-  headerFixed?: boolean
+  fullWidth?: boolean;
+  fixedHeight?: boolean;
+  headerFixed?: boolean;
+  children: React.ReactNode;
 }
 
-const PageLayout: FC<Props> = ({
+const PageLayout: FunctionComponent<Props> = ({
+  fullWidth,
+  fixedHeight,
+  headerFixed,
   children,
-  fullWidth = false,
-  fixedHeight = false,
-  disableTransition = false,
-  headerTransparent = false,
-  headerFixed = false,
 }) => {
-  const headerRef = useRef<HTMLDivElement>(null)
-  // change app height when window size changes
-  useWindowSize(500, () => {
-    if (!headerRef.current) return
-    const headerHeight = headerRef.current ? getComputedStyle(headerRef.current).height : '0px'
-    document.documentElement.style.setProperty(
-      '--app-height',
-      `${window.innerHeight - parseInt(headerHeight, 10)}px`
-    )
-  })
-
-  // assign app header heigh
-  useEffect(() => {
-    const headerHeight = headerRef.current ? getComputedStyle(headerRef.current).height : '0px'
-    document.documentElement.style.setProperty('--app-header-height', headerHeight)
-    document.documentElement.style.setProperty(
-      '--app-height',
-      `${window.innerHeight - parseInt(headerHeight, 10)}px`
-    )
-  }, [])
-
   return (
-    <div id="page-layout">
-      <Header ref={headerRef} fixed={headerFixed} transparent={headerTransparent} />
+    <div>
       <main
         className={classNames(
-          'z-0 flex flex-col w-full min-h-screen mx-auto h-screen',
-          `${headerFixed && 'mt-appheaderHeight'}`,
-          `${!fullWidth && 'max-w-appMaxWidth'}`,
-          `${fixedHeight && 'overflow-hidden min-h-appheight'}`
+          "z-0 flex flex-col w-full min-h-screen mx-auto h-screen",
+          `${headerFixed && "mt-appheaderHeight"}`,
+          `${!fullWidth && "max-w-appMaxWidth"}`,
+          `${fixedHeight && "overflow-hidden min-h-appheight"}`
         )}
       >
-        {!disableTransition ? <PageTransition>{children}</PageTransition> : <>{children}</>}
+        {children}
       </main>
-      <Footer />
-      <BottomNavigation />
     </div>
-  )
-}
+  );
+};
 
-export default PageLayout
+export default PageLayout;

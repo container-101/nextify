@@ -1,35 +1,30 @@
-import React, { useCallback, useState } from 'react'
-import { ComponentMeta } from '@storybook/react'
+import React, { ChangeEvent, useCallback, useState } from "react";
+import { ComponentMeta } from "@storybook/react";
 
-import InputBox from './InputBox'
-import { btnStyles } from '@src/utils/constants'
+import InputBox from "./InputBox";
 
 export default {
-  title: 'Components/InputBox',
+  title: "Components/InputBox",
   component: InputBox,
   argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: { action: 'clicked' },
+    backgroundColor: { control: "color" },
+    onClick: { action: "clicked" },
   },
-} as ComponentMeta<typeof InputBox>
-
-const Template = ({ title, styles }: { title: string; styles: btnStyles }) => {
-  return <div></div>
-}
+} as ComponentMeta<typeof InputBox>;
 
 export const Chunk = () => {
   const [Inputs, setInputs] = useState({
-    email: '',
-    password: '',
-  })
+    email: "",
+    password: "",
+  });
 
-  const handleOnChange = useCallback((e) => {
-    const { name, value } = e.target
+  const handleOnChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
     setInputs((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }, [])
+    }));
+  }, []);
 
   return (
     <div className="flex flex-col gap-2">
@@ -42,5 +37,5 @@ export const Chunk = () => {
         onChange={handleOnChange}
       />
     </div>
-  )
-}
+  );
+};

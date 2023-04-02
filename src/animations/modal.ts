@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion'
+import { Variants } from "framer-motion";
 
 export const modalVariants: Variants = {
   enter: {
@@ -14,7 +14,7 @@ export const modalVariants: Variants = {
     y: 500,
     opacity: 0,
   },
-}
+};
 
 export const modalOverlayVariants: Variants = {
   enter: {
@@ -26,4 +26,4 @@ export const modalOverlayVariants: Variants = {
   exit: {
     opacity: 0,
   },
-}
+};
