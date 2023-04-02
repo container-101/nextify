@@ -2,19 +2,20 @@ import React from "react";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 // external module css
-import "@styles/globals.css";
+import "@src/styles/globals.css";
 
 import { ThemeProvider } from "next-themes";
 import { AnimatePresence } from "framer-motion";
 
 import Analytics from "@src/components/analytics";
 import { siteMetadata } from "@src/core/config/siteMetadata";
+import { envConfig } from "@src/core/config/envConfig";
 
 function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
-        <title>{process.env.NEXT_PUBLIC_APP_TITLE}</title>
+        <title>{envConfig.appTitle}</title>
         <link rel="icon" href="/logo.ico" />
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />

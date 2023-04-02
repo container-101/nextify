@@ -1,5 +1,5 @@
 import { btnRoundness, btnSizes, btnStyles } from "@src/constants/atom-components";
-import cx from "classnames";
+import { twMerge as cx } from "tailwind-merge";
 import { motion, MotionProps } from "framer-motion";
 import React, { forwardRef, ForwardRefRenderFunction } from "react";
 
@@ -60,12 +60,12 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       type={type}
       disabled={disabled}
       className={cx(
-        className,
         selectSize[size],
         selectStyle[styles],
         selectRounded[roundness],
         "transition-colors bg-slate focus:shadow-outline duration-150",
-        fullWidth ? "w-full" : ""
+        fullWidth ? "w-full" : "",
+        className
       )}
       onClick={onClick}
       {...props}

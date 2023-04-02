@@ -1,6 +1,5 @@
 import axios, { AxiosInstance } from "axios";
 import qs from "qs";
-import { useMemo } from "react";
 
 import { envConfig } from "../config/envConfig";
 
@@ -17,15 +16,4 @@ const customAxiosEnv = axios.create({
   },
 });
 
-export const customAxios = () => {
-  if (axiosInstance) {
-    return axiosInstance;
-  }
-  axiosInstance = customAxiosEnv;
-  return axiosInstance;
-};
-
-export const useAxiosEnvironment = () =>
-  useMemo(() => {
-    customAxios();
-  }, []);
+export const customAxios = axiosInstance ? axiosInstance : (axiosInstance = customAxiosEnv);

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import classNames from "classnames";
+import { twMerge as cx } from "tailwind-merge";
 
 interface Props {
   fullWidth?: boolean;
@@ -17,7 +17,7 @@ const PageLayout: FunctionComponent<Props> = ({
   return (
     <div>
       <main
-        className={classNames(
+        className={cx(
           "z-0 flex flex-col w-full min-h-screen mx-auto h-screen",
           `${headerFixed && "mt-appheaderHeight"}`,
           `${!fullWidth && "max-w-appMaxWidth"}`,
