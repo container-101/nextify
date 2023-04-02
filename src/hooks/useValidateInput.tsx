@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function useValidateInput<T>(
   initialState: T,
@@ -6,7 +6,7 @@ export default function useValidateInput<T>(
   errorMessage: string
 ) {
   const [myState, setMyState] = React.useState<T>(initialState);
-  const [error, setError] = React.useState('');
+  const [error, setError] = React.useState("");
   const [isValid, setIsValid] = React.useState(true);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,7 +14,7 @@ export default function useValidateInput<T>(
     setMyState(value as unknown as T);
     const isValid = pattern.test(value);
     setIsValid(isValid);
-    setError(isValid ? '' : errorMessage);
+    setError(isValid ? "" : errorMessage);
   };
 
   return [myState, isValid, error, handleInputChange] as const;
