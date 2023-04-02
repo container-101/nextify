@@ -1,7 +1,7 @@
 import { ComponentMeta } from "@storybook/react";
 import Carousel from "./Carousel";
-import { Image } from "@src/components/common";
 import { useMemo } from "react";
+import Image from "@src/components/ui/utils/Image";
 
 export default {
   title: "Components/Carousel",

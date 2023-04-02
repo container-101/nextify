@@ -10,6 +10,7 @@ import { AnimatePresence } from "framer-motion";
 import Analytics from "@src/components/analytics";
 import { siteMetadata } from "@src/core/config/siteMetadata";
 import { envConfig } from "@src/core/config/envConfig";
+import { RecoilRoot } from "recoil";
 
 function App({ Component, pageProps, router }: AppProps) {
   return (
@@ -24,9 +25,11 @@ function App({ Component, pageProps, router }: AppProps) {
       </Head>
       <Analytics />
       <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
-        <AnimatePresence mode="wait" initial={false}>
-          <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
+        <RecoilRoot>
+          <AnimatePresence mode="wait" initial={false}>
+            <Component {...pageProps} key={router.route} />
+          </AnimatePresence>
+        </RecoilRoot>
       </ThemeProvider>
     </>
   );

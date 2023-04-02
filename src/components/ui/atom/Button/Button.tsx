@@ -1,6 +1,6 @@
 import { btnRoundness, btnSizes, btnStyles } from "@src/constants/atom-components";
 import { twMerge as cx } from "tailwind-merge";
-import { motion, MotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { forwardRef, ForwardRefRenderFunction } from "react";
 
 export type ButtonProps = {
@@ -8,12 +8,13 @@ export type ButtonProps = {
   size?: btnSizes;
   styles?: btnStyles;
   roundness?: btnRoundness;
+  activeHover?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
   className?: string;
   children?: React.ReactNode;
   onClick?: () => void;
-} & MotionProps;
+};
 
 const selectRounded: { [key in btnRoundness]: string } = {
   primary: "rounded-[2.5rem]",
@@ -50,7 +51,6 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     children,
     className,
     onClick,
-    ...props
   },
   ref
 ) => {
@@ -60,15 +60,15 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       type={type}
       disabled={disabled}
       className={cx(
+        className,
         selectSize[size],
         selectStyle[styles],
         selectRounded[roundness],
         "transition-colors bg-slate focus:shadow-outline duration-150",
-        fullWidth ? "w-full" : "",
-        className
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
+        fullWidth ? "w-full" : ""
       )}
       onClick={onClick}
-      {...props}
     >
       {children}
     </motion.button>

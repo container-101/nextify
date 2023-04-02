@@ -1,5 +1,5 @@
-import { Link } from "@src/components/common";
 import { PageLayout } from "@src/components/layout";
+import Link from "next/link";
 
 export default function FourZeroFour() {
   return (

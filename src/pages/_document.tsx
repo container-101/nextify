@@ -1,6 +1,7 @@
 import React from "react";
 import Document, { Head, Html, Main, NextScript } from "next/document";
 import { notchColor } from "@src/core/config/style/color";
+import { portalType } from "@src/components/ui/utils/Portal";
 
 export default class MyDocument extends Document {
   render() {
@@ -11,9 +12,10 @@ export default class MyDocument extends Document {
         <Head>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            as="style"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css"
           />
-          <link rel="icon" href="logo.ico" />
+          <link rel="icon" href="/favicon.ico" />
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
@@ -25,9 +27,11 @@ export default class MyDocument extends Document {
           <meta content={light} name="apple-mobile-web-app-status-bar-style" />
           <meta content="yes" name="apple-mobile-web-app-capable" />
         </Head>
-        <body className="bg-white text-black antialiased dark:bg-gray-900 dark:text-white">
+        <body>
           <Main />
-          <div id="modal" />
+          {portalType.map((item) => {
+            return <div key={item} id={item} />;
+          })}
           <NextScript />
         </body>
       </Html>
